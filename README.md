@@ -12,9 +12,14 @@ npm install
 
 **Runing**
 ```bash
-npm start index.js
+npm start
 ```
-or (using nodemon)
+Runing with node
+```bash
+node index.js
+```
+
+Runing with nodemon
 ```bash
 nodemon index.js
 ```
