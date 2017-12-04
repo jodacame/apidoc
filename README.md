@@ -1,4 +1,4 @@
-# Under development, Not functional version yet.
+# Under development.
 
 # apidoc
 API Rest Documentation Generator 
