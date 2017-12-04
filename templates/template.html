@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{title}}</title>
+    <meta name="description" content="{{description}}">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Fonts & Icons-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  </head>
+  <body class="bg-gray {{section}}">
+    <div class="navbar bg-light text-dark">
+      <span class="cursor-pointer" onclick="app.toggleClass(document.querySelector('body'),'menu-open')"><i class="fa fa-bars"></i><span class="title-app">HyperAPP</span></span>
+    </div>
+    <div id="main">
+        {{{page}}}
+    </div>
+
+    <div class="sidebar bg-dark-light">
+      <i class="fa fa-close cursor-pointer text-light" onclick="app.toggleClass(document.querySelector('body.menu-open'),'menu-open')"></i>
+      <div class="header bg-blue ">
+        <h1 class="title-app text-light">HyperAPP</h1>
+      </div>
+    </div>
+
+    <div class="overlay cursor-pointer" onclick="app.toggleClass(document.querySelector('body.menu-open'),'menu-open')"></div>
+    <!-- Main JavaScript -->
+    <script src="/js/script.js" charset="utf-8"></script>
+  </body>
+</html>
