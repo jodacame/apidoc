@@ -1,0 +1,28 @@
+{
+  "name": "apidoc",
+  "version": "1.0.0",
+  "description": "API Rest Documentation Generator Edit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jodacame/apidoc.git"
+  },
+  "keywords": [
+    "apidoc",
+    "api",
+    "documentation-generator"
+  ],
+  "author": "@jodacame,@ellipe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jodacame/apidoc/issues"
+  },
+  "homepage": "https://github.com/jodacame/apidoc#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "nodemon": "^1.12.1"
+  }
+}
