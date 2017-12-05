@@ -240,16 +240,26 @@ body.home .navbar{
   background: rgb(244, 244, 244) url("/images/bg-home.png") bottom center no-repeat;
   background-size: cover;
   position: relative;
-  padding-top:200px;
+  padding-top:180px;
   color:rgba(255, 255, 255, 1);
 }
-.hero h1{
+.hero h1.nice-title{
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, .1);
+}
+h1.nice-title{
   font-size:30px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 5px solid black;
+  border-image: linear-gradient(to right, rgba(255,255,255,.2) 0%, rgba(255,255,255,0) 40%); /* to top - at 50% transparent */
+  border-image-slice: 1;
+
 }
 .hero strong{
   color:rgba(255, 255, 255, .8);
   line-height: 25px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, .1);
   font-weight: 200;
 }
 .hero .overlay-hero{
