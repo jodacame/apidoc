@@ -99,16 +99,23 @@ app.ajax = function (type,url,data,callback,format)
     }
   }
 }
-app.dialog.close = function()
+app.dialog.close = function(noAnimation)
 {
   var dialog = document.querySelector(".modal");
   if(!dialog)
     return false;
-  app.removeClass(dialog.querySelector(".modal-dialog"),'bounceIn');
-  app.addClass(dialog.querySelector(".modal-dialog"),'bounceOut');
-  setTimeout(function(){
+  if(!noAnimation)
+  {
+    app.removeClass(dialog.querySelector(".modal-dialog"),'bounceIn');
+    app.addClass(dialog.querySelector(".modal-dialog"),'bounceOut');
+    setTimeout(function(){
+      dialog.remove();
+    },500);
+  }
+  else{
     dialog.remove();
-  },500);
+  }
+
 
 }
 
@@ -127,6 +134,9 @@ app.dialog.open = function(dialog)
     },'HTML');
   }
   else {
+    // Close others dialogs first
+    app.dialog.close(true);
+
     var idDialog  = 'dialog-'+dialog;
     var _elm       = document.createElement('div');
     _elm.setAttribute("id",idDialog);

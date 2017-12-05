@@ -16,6 +16,7 @@
     border-radius: 0px;
     box-shadow: none;
     border:0px;
+    text-decoration: none;
 }
 html, body {
     height: 100%;
@@ -39,7 +40,7 @@ html, body {
 /* Texts */
 .text-light{color:rgb(255, 255, 255)}
 .text-dark{color:rgb(31, 31, 31)}
-.text-dark-light{color:rgba(0, 0, 0,.8)}
+.text-dark-light{color:rgba(0, 0, 0,.5)}
 .text-red{color:rgb(230, 78, 78)}
 .text-orange{color:rgb(224, 138, 22)}
 .text-blue{color:rgba(60, 101, 230,1)}
@@ -214,22 +215,23 @@ html, body {
 }
 
 /* Login Modal Dialog */
+.modal-dialog.register .modal-body,
 .modal-dialog.login .modal-body{
   padding:0px;
 }
-.modal-dialog.login .modal-body .col6{
+.modal-dialog .modal-body .col6{
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   height: 100%;
   padding:15px;
 
 }
-.modal-dialog.login .modal-body .col6:last-child{
+.modal-dialog .modal-body .col6:last-child{
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
 }
-.modal-dialog.login .modal-body form input{
+.modal-dialog .modal-body form input{
   width: 100%;
   font-size: 16px;
   padding:5px;
@@ -241,11 +243,11 @@ html, body {
   border:0px;
   border-bottom:1px solid rgba(0, 0, 0, .1);
 }
-.modal-dialog.login .modal-body form input:focus,
-.modal-dialog.login .modal-body form input:active{
+.modal-dialog .modal-body form input:focus,
+.modal-dialog .modal-body form input:active{
   border-bottom:1px solid rgba(0, 0, 0, .3);
 }
-.modal-dialog.login .modal-body form button[type='submit']{
+.modal-dialog .modal-body form button[type='submit']{
   width: 100%;
   padding:10px;
   cursor: pointer;
@@ -254,38 +256,52 @@ html, body {
   margin-bottom: 15px;
 
 }
-.modal-dialog.login .modal-body form button[type='submit']:hover{
+.modal-dialog .modal-body form button[type='submit']:hover{
   opacity: .7;
 }
-.modal-dialog.login .modal-body .col6 h1{
+.modal-dialog .modal-body .col6 h1{
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 10px;
 
 }
-.modal-dialog.login .modal-body .col6 strong{
+.modal-dialog .modal-body .col6 strong{
   font-weight: 200;
 }
-.modal-dialog.login .modal-body .col6 .subtitle{
+.modal-dialog .modal-body .col6 .subtitle{
   padding-bottom: 20px;
   padding-top: 20px;
   display: block;
   color:rgba(255, 255,255, 0.8);
 }
-.modal-dialog.login .modal-body .col6 .feature{
+.modal-dialog .modal-body .col6 .feature{
   margin-top: 20px;
   font-weight: 200;
   color:rgba(255, 255,255, 0.8);
   font-size: 14px;
 
 }
-.modal-dialog.login .modal-body .col6 .feature i{
+.modal-dialog .modal-body .col6 .feature i{
   margin-right: 10px;
   transition: all .2s linear;
 }
-.modal-dialog.login .modal-body .col6 .feature:hover i{
+.modal-dialog .modal-body .col6 .feature:hover i{
   transform: scale(1.6);
   transition: all .2s linear;
+}
+.modal-dialog .modal-body form .link{
+  text-align: center;
+  display: block;
+  padding-top:5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-bottom:5px;
+}
+.onhover-text-bold:hover{
+  font-weight: bold;
+}
+.text-small{
+  font-size: 12px;
 }
 .nice-title{
   font-size:30px;
