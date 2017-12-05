@@ -43,7 +43,7 @@ html, body {
 .text-dark-light{color:rgba(0, 0, 0,.5)}
 .text-red{color:rgb(230, 78, 78)}
 .text-orange{color:rgb(224, 138, 22)}
-.text-blue{color:rgba(60, 101, 230,1)}
+.text-blue{color:#0080C1}
 .text-yellow{color:rgb(220, 228, 55)}
 
 .text-bold{font-weight: bold;}
@@ -312,6 +312,30 @@ html, body {
   border-image-slice: 1;
 
 }
+.btn{
+  padding:10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px rgba(0,0,0,.3);
+  width: auto;
+  display: table;
+  cursor: pointer;
+  transition: all .2s ease;
+  user-select: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.btn:hover{
+  transition: all .2s ease;
+  box-shadow: 1px 1px 6px rgba(0,0,0,.3);
+}
+.btn:active{
+  transition: all .2s ease;
+  transform: scale(.9);
+}
+
 @media all and (max-width:1000px)
 {
 
