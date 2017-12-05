@@ -5,10 +5,13 @@
     <title>{{title}}</title>
     <meta name="description" content="{{description}}">
     <!-- Main Style -->
+    <link rel="stylesheet" href="/css/template.css">
     <link rel="stylesheet" href="/css/style.css">
     <!-- Fonts & Icons-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="icon" href="/images/favicon.png" sizes="16x16 32x32 48x48 64x64 128x128" type="image/png">
@@ -19,8 +22,13 @@
     <div class="navbar bg-light text-dark box-shadow">
       <div class="container">
           <span class="cursor-pointer" onclick="app.toggleClass(document.querySelector('body'),'menu-open')"><i class="fa fa-bars"></i><span class="title-app">{ <strong>API</strong>Doc }</span></span>
-          <a href="#">Login</a>
+<<<<<<< HEAD
+          <a href="#" onclick="app.dialog.open('login-form')">Login</a>
           <a href="#">Sing Up</a>
+=======
+          <a href="#">Login</a>
+          <a href="#">Sign Up</a>
+>>>>>>> 87b488a1151c810622ab3681e3016675b141870e
       </div>
 
     </div>
