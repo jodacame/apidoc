@@ -149,6 +149,28 @@ body.home .navbar{
   background-color: rgba(0, 0, 0, 0);
   display: none;
 }
+.features-home{
+  font-size: 20px;
+  line-height: 25px;
+  color:rgba(0, 0, 0, .8);
+}
+.features-home strong{
+  font-weight: bold;
+
+}
+.features-home span{
+  display: block;
+  margin-top: 10px;
+  font-size: 16px;
+  color:rgba(0, 0, 0, .6);
+}
+.features-home  i{
+  display: block;
+  font-size: 80px;
+  
+  margin-bottom: 20px;
+
+}
 @media all and (max-width:1000px)
 {
   .sidebar .fa-close{
