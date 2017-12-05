@@ -19,10 +19,11 @@ html, body {
 }
 
 /* Backgrounds */
+.bg-white{ background-color: rgb(255, 255, 255); }
 .bg-light{ background-color: rgb(255, 255, 255); }
 .bg-gray{ background-color: rgb(233, 233, 233); }
 .bg-yellow{ background-color: rgb(224, 221, 76) }
-.bg-blue{ background-color: rgb(60, 101, 230) }
+.bg-blue{ background-color: #0080C1 }
 .bg-red{ background-color: rgb(230, 78, 78) }
 .bg-dark{ background-color: rgb(31, 31, 31) }
 .bg-dark-light{ background-color: rgb(62, 62, 62) }
@@ -117,13 +118,39 @@ body{
 }
 .navbar{
   width: 100%;
-  height: 50px;
+  height: 60px;
   vertical-align: middle;
-  line-height: 50px;
+  line-height: 60px;
   box-sizing: 0px 0px 6px rgba(0,0,0,.1);
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 9999;
+  box-sizing: border-box;
+}
+.navbar a{
+  display: inline-block;
+  line-height: 40px;
+  height: 40px;
+  margin-top:10px;
+  margin-bottom:10px;
   padding-left: 20px;
   padding-right: 20px;
-  box-sizing: border-box;
+  text-decoration: none;
+  float: right;
+  text-transform:capitalize;
+  border-radius: 4px;
+  transition: all .2s linear;
+  margin-left: 10px;
+
+}
+
+.navbar a:hover{
+  background-color: rgba(255, 255, 255, .4);
+  border-radius: px;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  transform: scale(1.1);
 }
 .navbar .fa-bars{
   display: none;
@@ -155,9 +182,9 @@ body{
 }
 .sidebar .header{
   width: 100%;
-  height: 50px;
+  height: 60px;
   vertical-align: middle;
-  line-height: 50px;
+  line-height: 60px;
   box-sizing: 0px 0px 6px rgba(0,0,0,.1);
   padding-left: 20px;
   padding-right: 20px;
@@ -189,6 +216,7 @@ body.menu-open .sidebar{
   transform: translate3d(0px,0,0);
 
 }
+/* HOME */
 body.home .overlay,
 body.home .sidebar{
   display: none;
@@ -198,7 +226,39 @@ body.home{
   padding-left: 0px;
 }
 body.home .title-app{
-  display: block;
+  display: inline-block;
+}
+body.home .navbar{
+  background-color: rgba(255,255,255,.1);
+  box-shadow: none;
+  color:rgba(255, 255, 255, 1);
+}
+.hero{
+  width: 100%;
+  min-height: 600px;
+  background: rgb(244, 244, 244) url("/images/bg-home.png") bottom center no-repeat;
+  background-size: cover;
+  position: relative;
+  padding-top:200px;
+  color:rgba(255, 255, 255, 1);
+}
+.hero h1{
+  font-size:30px;
+  padding-bottom: 20px;
+}
+.hero strong{
+  color:rgba(255, 255, 255, .8);
+  line-height: 23px;
+  font-weight: 200;
+}
+.hero .overlay-hero{
+  position: absolute;
+  width: 100%;
+  min-height: 300px;
+  top:0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0);
+  display: none;
 }
 @media all and (max-width:1000px)
 {
@@ -220,5 +280,14 @@ body.home .title-app{
   }
   body.home .navbar .fa-bars{
     display: none;
+  }
+  .container {
+     width: 100%;
+     max-width: 1200px;
+     margin: 0 auto;
+  }
+  .navbar{
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
