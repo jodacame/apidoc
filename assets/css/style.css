@@ -167,8 +167,43 @@ body.home .navbar{
 .features-home  i{
   display: block;
   font-size: 80px;
-  
+
   margin-bottom: 20px;
+
+}
+.register-now{
+  margin-top: 100px;
+  padding-top:50px;
+  padding-bottom: 50px;
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, .4);
+  background: url("/images/metal.jpg") center center no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.register-now h1{
+  font-size: 30px;
+  padding-bottom: 30px;
+  font-weight: 600;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, .4);
+}
+.register-now h2{
+  font-size: 30px;
+  padding-bottom: 30px;
+  font-weight: 400;
+  color:rgba(255, 255, 255, 1);
+
+}
+.register-now span{
+  line-height: 26px;
+  font-weight: 200;
+  color:rgba(255, 255, 255, .7);
+  margin-bottom: 50px;
+  display: block;
+}
+.register-now .btn{
+  margin:auto;
+  padding-left: 30px;
+  padding-right: 30px;
 
 }
 @media all and (max-width:1000px)
