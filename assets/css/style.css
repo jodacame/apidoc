@@ -147,9 +147,7 @@ body{
 
 .navbar a:hover{
   background-color: rgba(255, 255, 255, .4);
-  border-radius: px;
-  border-top-left-radius: 50%;
-  border-bottom-right-radius: 50%;
+  
   transform: scale(1.1);
 }
 .navbar .fa-bars{
@@ -248,7 +246,7 @@ body.home .navbar{
 }
 .hero strong{
   color:rgba(255, 255, 255, .8);
-  line-height: 23px;
+  line-height: 25px;
   font-weight: 200;
 }
 .hero .overlay-hero{
@@ -283,9 +281,29 @@ body.home .navbar{
   }
   .container {
      width: 100%;
+     padding-left:10px;
+     padding-right:10px;
      max-width: 1200px;
      margin: 0 auto;
   }
+  .hero{
+    padding-top:80px;
+  }
+  .row > .col1,
+  .row > .col2,
+  .row > .col3,
+  .row > .col4,
+  .row > .col5,
+  .row > .col6,
+  .row > .col7,
+  .row > .col8,
+  .row > .col9,
+  .row > .col10,
+  .row > .col11,
+  .row > .col12{
+    width: 100%;
+  }
+
   .navbar{
     padding-left: 10px;
     padding-right: 10px;
