@@ -1,0 +1,333 @@
+/* Colors */
+
+
+/* Reset */
+*, *:before, *:after {
+    position: relative;
+    font: inherit;
+    line-height: inherit;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: 0;
+    border-radius: 0px;
+    box-shadow: none;
+    border:0px;
+}
+html, body {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+
+
+
+}
+
+/* Backgrounds */
+.bg-white{ background-color: rgb(255, 255, 255); }
+.bg-light{ background-color: rgb(255, 255, 255); }
+.bg-gray{ background-color: rgb(233, 233, 233); }
+.bg-yellow{ background-color: rgb(224, 221, 76) }
+.bg-blue{ background-color: #0080C1 }
+.bg-red{ background-color: rgb(230, 78, 78) }
+.bg-dark{ background-color: rgb(31, 31, 31) }
+.bg-dark-light{ background-color: rgb(62, 62, 62) }
+.bg-orange{ background-color: rgb(224, 138, 22) }
+
+/* Texts */
+.text-light{color:rgb(255, 255, 255)}
+.text-dark{color:rgb(31, 31, 31)}
+.text-dark-light{color:rgba(0, 0, 0,.8)}
+.text-red{color:rgb(230, 78, 78)}
+.text-orange{color:rgb(224, 138, 22)}
+.text-blue{color:rgba(60, 101, 230,1)}
+.text-yellow{color:rgb(220, 228, 55)}
+
+.text-bold{font-weight: bold;}
+.box-shadow{
+  box-shadow:0px 0px 16px rgba(0, 0, 0, .5);
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Grids */
+.vertical-align {
+   display: -webkit-flex;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-align-items: center;
+   -ms-flex-align: center;
+   align-items: center;
+}
+.row {
+   padding: 0;
+   margin: 0;
+}
+.row,
+.row:after {
+   clear: both;
+   zoom: 1;
+}
+.row:before,
+.row:after {
+   content: '';
+   display: table;
+}
+.row > div {
+   float: left;
+}
+.row > .col1 {
+   width: 8.33%;
+}
+.row > .col2 {
+   width: 16.66666%;
+}
+.row > .col3 {
+   width: 24.99%;
+}
+.row > .col4 {
+   width: 33.33%;
+}
+.row > .col5 {
+   width: 33.33%;
+}
+.row > .col6 {
+   width: 50%;
+}
+.row > .col7 {
+   width: 58.333%;
+}
+.row > .col8 {
+   width: 66.66666664%;
+}
+.row > .col9 {
+   width: 74.999997%;
+}
+.row > .col10 {
+   width: 83.33%;
+}
+.row > .col11 {
+   width: 91.666663%;
+}
+.row > .col12 {
+   width: 100%;
+}
+.container {
+   width: 80%;
+   max-width: 1200px;
+   margin: 0 auto;
+}
+
+/* MODALS */
+.modal{
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  top:0;
+  left:0;
+  z-index: 99999;
+}
+.modal-dialog .modal-content{
+  height: 100%;
+}
+.modal-dialog{
+  width: 600px;
+  height: 300px;
+  background-color: rgba(255, 255, 255,1);
+  border-radius: 4px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, .3);
+  position: fixed;
+  left: 50%;
+  top:50%;
+  margin-left: -300px;
+  margin-top: -150px;
+}
+.modal-dialog .modal-header{
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  height: 50px;
+  width:100%;
+  line-height: 50px;
+  vertical-align: middle;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.modal-dialog .modal-header .modal-title{
+  padding-right: 30px;
+  display: block;
+  white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+}
+
+.modal-dialog .modal-header button.close{
+  background-color: transparent;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border:0px;
+  font-size: 20px;
+  cursor:pointer;
+  right: 0;
+  top:0;
+}
+.modal-dialog .modal-header button.close:hover{
+  opacity: .7;
+}
+.modal-dialog .modal-body{
+  padding:10px;
+}
+
+.modal-dialog .modal-footer{
+  position: absolute;
+  bottom:0;
+  left:0;
+  height: 50px;
+  width: 100%;
+  vertical-align: middle;
+  line-height: 50px;
+  border-top: 1px solid rgba(0, 0, 0, .05);
+}
+.modal-dialog .modal-footer button{
+  background-color: transparent;
+  display:inline-block;
+  float: right;
+  border:0px;
+  cursor: pointer;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-transform: uppercase;
+}
+.modal-dialog .modal-footer button:hover{
+  background-color: rgba(0, 0, 0, .1);
+}
+
+/* Login Modal Dialog */
+.modal-dialog.login .modal-body{
+  padding:0px;
+}
+.modal-dialog.login .modal-body .col6{
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  height: 100%;
+  padding:15px;
+
+}
+.modal-dialog.login .modal-body .col6:last-child{
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.modal-dialog.login .modal-body form input{
+  width: 100%;
+  font-size: 16px;
+  padding:5px;
+  padding-left: 0px;
+  padding-right: 0px;
+  border-radius: 0px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  border:0px;
+  border-bottom:1px solid rgba(0, 0, 0, .1);
+}
+.modal-dialog.login .modal-body form input:focus,
+.modal-dialog.login .modal-body form input:active{
+  border-bottom:1px solid rgba(0, 0, 0, .3);
+}
+.modal-dialog.login .modal-body form button[type='submit']{
+  width: 100%;
+  padding:10px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+}
+.modal-dialog.login .modal-body form button[type='submit']:hover{
+  opacity: .7;
+}
+.modal-dialog.login .modal-body .col6 h1{
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+
+}
+.modal-dialog.login .modal-body .col6 strong{
+  font-weight: 200;
+}
+.modal-dialog.login .modal-body .col6 .subtitle{
+  padding-bottom: 20px;
+  padding-top: 20px;
+  display: block;
+  color:rgba(255, 255,255, 0.8);
+}
+.modal-dialog.login .modal-body .col6 .feature{
+  margin-top: 20px;
+  font-weight: 200;
+  color:rgba(255, 255,255, 0.8);
+  font-size: 14px;
+
+}
+.modal-dialog.login .modal-body .col6 .feature i{
+  margin-right: 10px;
+  transition: all .2s linear;
+}
+.modal-dialog.login .modal-body .col6 .feature:hover i{
+  transform: scale(1.6);
+  transition: all .2s linear;
+}
+.nice-title{
+  font-size:30px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 5px solid black;
+  border-image: linear-gradient(to right, rgba(255,255,255,.2) 0%, rgba(255,255,255,0) 40%); /* to top - at 50% transparent */
+  border-image-slice: 1;
+
+}
+@media all and (max-width:1000px)
+{
+
+  .container {
+     width: 100%;
+     padding-left:10px;
+     padding-right:10px;
+     max-width: 1200px;
+     margin: 0 auto;
+  }
+
+  .row > .col1,
+  .row > .col2,
+  .row > .col3,
+  .row > .col4,
+  .row > .col5,
+  .row > .col6,
+  .row > .col7,
+  .row > .col8,
+  .row > .col9,
+  .row > .col10,
+  .row > .col11,
+  .row > .col12{
+    width: 100%;
+  }
+
+  .navbar{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .navbar a{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
