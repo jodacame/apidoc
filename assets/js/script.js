@@ -1,6 +1,7 @@
 var app = {};
 app.temlates = [];
 app.dialog = {};
+var $ = app; // Do you like jQuery alias?  :) Ok... But remember .. this it's not jQuery :p
 
 app.toggleClass= function(el, _class) {
 
@@ -63,22 +64,61 @@ app.removeClass = function(elements, _class) {
 }
 
 app.submit = function(form,callback){
+  var data = app.serialize(form);
+  app.ajax('POST',form.target,data,function(res,err){
+    window[callback](res,err);
+  });
   return false;
 }
-app.ajax = function (type,url,data,callback,format)
+
+// Login
+
+app.login = function(res,err)
+{
+  console.log(res);
+  console.log(err);
+}
+// End Login
+app.ajax = function (type,url,data,callback,format,enctype)
 {
   var xhr = new XMLHttpRequest();
   console.log(type,url);
   xhr.open(type, url);
-  if(type=='POST')
-  {
-    if(format.toLowerCase() != 'html')
-      xhr.setRequestHeader("Content-type", "application/json");
-    if( typeof data == 'object')
-    {
-      data = JSON.stringify(data);
-    }
+  if(!format)
+    format = 'json';
+  switch (type.toUpperCase()) {
+
+    case 'POST':
+        if(format.toLowerCase() != 'html')
+          xhr.setRequestHeader("Content-type", "application/json");
+        if( typeof data == 'object')
+        {
+          data = JSON.stringify(data);
+        }
+      break;
+
+    case 'GET':
+        if( typeof data == 'object' && data)
+        {
+          var params = "";
+          for (var key in data) {
+              if (str != "") {
+                  str += "&";
+              }
+              params += params + "=" + obj[key];
+            }
+            url = url+"?"+params;
+        }
+        data = null;
+      break;
+
+    default:
+      console.warn("[AJAX] Type: "+type+ " Not valid");
+      return false;
   }
+
+
+
   //xhr.setRequestHeader( 'Access-Control-Allow-Origin', '*');
   //xhr.withCredentials = false;
   xhr.send(data);
@@ -99,6 +139,47 @@ app.ajax = function (type,url,data,callback,format)
     }
   }
 }
+
+app.serialize = function(form)
+{
+
+
+  var body = Object.create(null)
+
+  Array.prototype.slice.call(form.querySelectorAll('input:not(:disabled), textarea:not(:disabled), select:not(:disabled)')).forEach(function (el)
+  {
+    var key = el.name;
+
+    // if an element has no name, it wouldn't be sent to the server
+    if (!key) return
+
+    if (['file', 'reset', 'submit', 'button'].indexOf(el.type) > -1) return
+
+    if (['checkbox', 'radio'].indexOf(el.type) > -1 && !el.checked) return
+
+    if (/\[\]$/.test(key)) {
+      key = key.slice(0,-2);
+
+      // if using array notation, go ahead and put the first value into an array.
+      if (body[key] === undefined) {
+        body[key] = [];
+      }
+    }
+
+    if (body[key] === undefined) {
+      body[key] = el.value;
+    } else if (Object.prototype.toString.call(body[key]) === '[object Array]') {
+      body[key].push(el.value);
+    } else {
+      body[key] = [body[key], el.value];
+    }
+  });
+  return body
+
+}
+
+
+
 app.dialog.close = function(noAnimation)
 {
   var dialog = document.querySelector(".modal");

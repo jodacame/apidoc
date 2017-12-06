@@ -16,7 +16,7 @@
 
           </div>
           <div class="col6 vertical-align text-dark bg-light">
-              <form method="POST" onsubmit="return app.submit(this,'login')">
+              <form method="POST" target="/account/login" enctype="application/x-www-form-urlencoded" onsubmit="return app.submit(this,'app.login')">
                   <input type="email" required placeholder="Email" name="email" />
                   <input type="password" required placeholder="Password" name="password" />
                   <button type="submit" class="bg-blue text-light">Login</button>
