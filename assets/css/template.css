@@ -38,6 +38,7 @@ html, body {
 .bg-orange{ background-color: rgb(224, 138, 22) }
 
 /* Texts */
+.text-light-dark{color:rgba(255, 255, 255,.6)}
 .text-light{color:rgb(255, 255, 255)}
 .text-dark{color:rgb(31, 31, 31)}
 .text-dark-light{color:rgba(0, 0, 0,.5)}
@@ -314,8 +315,8 @@ html, body {
 }
 .btn{
   padding:10px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
   text-align: center;
   border-radius: 3px;
   box-shadow: 1px 1px 10px rgba(0,0,0,.3);
@@ -338,6 +339,9 @@ html, body {
 
 .text-center{
   text-align: center;
+}
+.pt2{
+  padding-top: 20px;
 }
 @media all and (max-width:1000px)
 {
