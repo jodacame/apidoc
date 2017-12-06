@@ -172,31 +172,31 @@ body.home .navbar{
 
 }
 .register-now{
-  margin-top: 100px;
-  padding-top:50px;
+  margin-top: 0px;
+  padding-top:230px;
   padding-bottom: 50px;
-  text-shadow: 0px 0px 3px rgba(0, 0, 0, .4);
-  background: url("/images/metal.jpg") center center no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+  text-shadow: 1px 1px 5px rgba(255,255,255, 1);
+  background: rgba(0,0,0,.1) url("/images/cloud.png") center top no-repeat;
+
+  background-size:contain;
 }
 .register-now h1{
   font-size: 30px;
   padding-bottom: 30px;
   font-weight: 600;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, .4);
+
 }
 .register-now h2{
   font-size: 30px;
   padding-bottom: 30px;
-  font-weight: 400;
-  color:rgba(255, 255, 255, 1);
+  font-weight: 600;
+
 
 }
 .register-now span{
   line-height: 26px;
-  font-weight: 200;
-  color:rgba(255, 255, 255, .7);
+  font-weight: 400;
+
   margin-bottom: 50px;
   display: block;
 }
