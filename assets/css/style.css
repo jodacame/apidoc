@@ -175,7 +175,7 @@ body.home .navbar{
   margin-top: 0px;
   padding-top:230px;
   padding-bottom: 50px;
-  text-shadow: 1px 1px 5px rgba(255,255,255, 1);
+  text-shadow: 1px 1px 1px rgba(255,255,255, .5);
   background: rgba(0,0,0,.1) url("/images/cloud.png") center top no-repeat;
 
   background-size:contain;
@@ -205,6 +205,30 @@ body.home .navbar{
   padding-left: 30px;
   padding-right: 30px;
 
+}
+.footer{
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.footer .social a{
+  font-size: 40px;
+  padding:10px;
+  width: 100px;
+  margin:10px;
+  border-radius: 3px;
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  transition: all .2s linear;
+
+}
+.footer .social a:hover{
+  transform: scale(.9);
+  transition: all .2s linear;
+}
+.footer .social a:active{
+  transform: scale(.7);
+  transition: all .2s linear;
 }
 @media all and (max-width:1000px)
 {
