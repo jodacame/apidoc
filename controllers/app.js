@@ -4,6 +4,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const compression = require('compression')
 const website   = require("./website.js")
+const account   = require("./account.js")
 
 const app = express();
 
@@ -23,6 +24,9 @@ app.use(express.static('assets'))
 /* Website Routes */
 app.get("/",website.home);
 app.get("/panel",website.panel);
+
+/* Account */
+app.post("/account/login",account.login);
 
 
 module.exports = app;

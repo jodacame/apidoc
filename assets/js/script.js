@@ -73,10 +73,31 @@ app.submit = function(form,callback){
 
 // Login
 
-app.login = function(res,err)
+login = function(res,err)
 {
-  console.log(res);
-  console.log(err);
+
+  return false;
+}
+
+
+app.sendForm = function(form,callback)
+{
+    var formData = new FormData(form)
+    var data = {};
+      formData.forEach(function(value, key){
+          data[key] = value;
+      });
+    var request = new XMLHttpRequest()
+
+
+    request.onreadystatechange = function(){
+      window[callback](request.responseText,request)
+    }
+    request.open(form.method, form.action,true)
+    request.setRequestHeader("Content-type", "application/json");
+    request.send(JSON.stringify(data));
+
+    return false;
 }
 // End Login
 app.ajax = function (type,url,data,callback,format,enctype)
@@ -115,7 +136,7 @@ app.ajax = function (type,url,data,callback,format,enctype)
     default:
       console.warn("[AJAX] Type: "+type+ " Not valid");
       return false;
-  }
+    }
 
 
 
