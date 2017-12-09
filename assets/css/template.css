@@ -47,12 +47,14 @@ html, body {
 .text-blue{color:#0080C1}
 .text-yellow{color:rgb(220, 228, 55)}
 
-.text-bold{font-weight: bold;}
+.text-bold,.text-strong{font-weight: bold;}
+.text-underline{text-decoration: underline;;}
 .box-shadow{
   box-shadow:0px 0px 16px rgba(0, 0, 0, .5);
 }
 .cursor-pointer{
   cursor: pointer;
+  user-select: none;
 }
 
 .truncate {
@@ -247,6 +249,12 @@ html, body {
 .modal-dialog .modal-body form input:focus,
 .modal-dialog .modal-body form input:active{
   border-bottom:1px solid rgba(0, 0, 0, .3);
+}
+.modal-dialog .modal-body form input:disabled,
+.modal-dialog .modal-body form input:read-only,
+.modal-dialog .modal-body form button[type='submit']:disabled{
+  opacity: .5;
+  cursor: not-allowed;
 }
 .modal-dialog .modal-body form button[type='submit']{
   width: 100%;

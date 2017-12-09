@@ -315,4 +315,21 @@ app.toast = function(type,message)
 
 }
 
+app.sendRecoveryCode = function(form)
+{
+
+  var form = document.querySelector("#frm-recovery");
+  if (!form.email.checkValidity()) {
+      form.email.focus();
+       app.toast("warning",form.email.validationMessage);
+       return false;
+  }
+  /* TODO: Send email with recovery code */
+  form.email.readOnly = true;
+  var email = form.email.value;
+  form.password.disabled = false;
+  form.passwordr.disabled = false;
+  form.recovery.disabled = false;
+  form.querySelector("button[type='submit']").disabled = false;
+}
 app.init();
