@@ -40,6 +40,9 @@ var register = function(req,res,next){
   var passwordr   = req.body.passwordr;
   if(password == passwordr)
   {
+
+    crud.createUnique("account","email"); /* Optional */
+
     crud.findOne("account",{email:req.body.email},function(err,result){
       if(!result)
       {

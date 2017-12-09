@@ -12,5 +12,5 @@ var register = function(res,err){
     app.dialog.close();
   }
   app.toast(res.message.type,res.message.text)
-
+  /* TODO: Auto-Login */
 }

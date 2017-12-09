@@ -3,8 +3,11 @@
 const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://localhost:27017/apidoc";
 
-
-
+/*
+ * @param {String} name collection
+ * @param {Object} object to save
+ * @param {Function} Callback (err,result)
+ */
 var save = function(target,data,callback)
 {
 
@@ -17,6 +20,12 @@ var save = function(target,data,callback)
   });
 }
 
+/*
+ * @param {String} name collection
+ * @param {Object} filter
+ * @param {Object} update date
+ * @param {Function} Callback (err,result)
+ */
 var update = function(target,filter,data,callback)
 {
   MongoClient.connect(url, function(err, db) {
@@ -34,6 +43,12 @@ var find = function(target,filter,callback)
 
 }
 
+/*
+ * @param {String} name collection
+ * @param {Object} filter
+ * @param {Function} Callback (err,result)
+ */
+
 var findOne = function(target,filter,callback)
 {
 
@@ -48,8 +63,19 @@ var findOne = function(target,filter,callback)
 
 }
 
+/*
+ * @param {String} name collection
+ * @param {Object} field name
+ */
+var createUnique = function(target,field){
+  MongoClient.connect(url, function(err, db) {
+    db.createIndex(target, field, {unique: true});
+  });
+}
+
 module.exports = {
   save,
   find,
-  findOne
+  findOne,
+  createUnique
 }
