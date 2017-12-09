@@ -6,7 +6,7 @@
             <div class="row">
                 <h1 class="col12 nice-title">Recovery Account</h1>
                 <strong class="col12 subtitle">How do I recover my account?</strong>
-                <div class="col12 feature" title="Click here for send a recovery code to my Email account"><i class="fa fa-envelope-o" aria-hidden="true"></i> <span onclick="app.sendRecoveryCode()" class="text-underline text-strong cursor-pointer">Get your recovery code</span></div>
+                <div class="col12 feature text-underline text-strong cursor-pointer" onclick="app.sendRecoveryCode(this)" title="Click here for send a recovery code to my Email account"><i class="fa fa-envelope-o" aria-hidden="true"></i> <span >Get your recovery code</span></div>
                 <div class="col12 feature"><i class="fa fa-eye" aria-hidden="true"></i> Check your Email inbox</div>
                 <div class="col12 feature"><i class="fa fa-check" aria-hidden="true"></i> Set your new password</div>
                 <div class="col12 feature"><i class="fa fa-smile-o" aria-hidden="true"></i> Done!</div>
@@ -19,7 +19,7 @@
           <div class="col6 vertical-align text-dark bg-light">
               <form method="POST" action="/account/login"  id="frm-recovery" onsubmit="return app.sendForm(this,'login')">
 
-                  <input type="email" title="Your Email" required placeholder="Email" name="email" />
+                  <input type="email" class="animated" title="Your Email" required placeholder="Email" name="email" />
                   <input type="password" disabled required placeholder="New Password" name="password" />
                   <input type="password" disabled required placeholder="Repeat Password" name="passwordr" />
                   <input type="String" disabled required placeholder="Recovery Code" name="recovery" />

@@ -18,8 +18,16 @@ app.toggleClass= function(el, _class) {
   }
 }
 
-app.addClass = function(elements, _class) {
+app.addClass = function(elements, _class,remove) {
 
+  if(remove)
+  {
+    if(!isNaN(remove))
+      remove = 500;
+    setTimeout(function(){
+      app.removeClass(elements,_class)
+    },remove);
+  }
   // if there are no elements, we're done
   if (!elements) { return; }
 
@@ -315,15 +323,25 @@ app.toast = function(type,message)
 
 }
 
-app.sendRecoveryCode = function(form)
+app.sendRecoveryCode = function(elm)
 {
 
   var form = document.querySelector("#frm-recovery");
   if (!form.email.checkValidity()) {
       form.email.focus();
+      app.addClass(form.email,"shake",2000);
        app.toast("warning",form.email.validationMessage);
        return false;
   }
+  app.removeClass(elm,"text-underline");
+  app.removeClass(elm,"text-strong");
+  app.removeClass(elm,"cursor-pointer");
+
+
+  app.addClass(elm.nextElementSibling,"text-strong");
+
+  elm.removeAttribute("onclick");
+
   /* TODO: Send email with recovery code */
   form.email.readOnly = true;
   var email = form.email.value;
