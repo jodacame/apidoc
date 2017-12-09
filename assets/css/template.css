@@ -378,6 +378,7 @@ html, body {
   transition: all .2s ease;
   display: block;
   pointer-events: all;
+  
 
 }
 #toastNoty div:hover{

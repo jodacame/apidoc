@@ -317,9 +317,10 @@ app.toast = function(type,message)
 
 
 
-
-
-    app.cache['toastNoty'].appendChild(_noty);
+    if(app.cache['toastNoty'].childNodes[0])
+      app.cache['toastNoty'].insertBefore(_noty,app.cache['toastNoty'].childNodes[0]);
+    else
+      app.cache['toastNoty'].appendChild(_noty);
 
 }
 
