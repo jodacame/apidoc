@@ -349,5 +349,6 @@ app.sendRecoveryCode = function(elm)
   form.passwordr.disabled = false;
   form.recovery.disabled = false;
   form.querySelector("button[type='submit']").disabled = false;
+  form.password.focus();
 }
 app.init();
