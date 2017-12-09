@@ -344,6 +344,46 @@ html, body {
 .pt2{
   padding-top: 20px;
 }
+#toastNoty{
+  position: fixed;
+  width: 280px;
+  height: 100%;;
+  right: 10px;
+  top:0;
+  z-index: 9999999;
+  pointer-events: none;
+}
+#toastNoty div{
+  width: 280px;
+  padding:13px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, .2);
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background-color: #000;
+  color: #FFF;
+  border:2px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all .2s ease;
+  display: block;
+  pointer-events: all;
+
+}
+#toastNoty div:hover{
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0);
+  transition: all .2s linear;
+}
+#toastNoty div.success{background-color: #4CAF50}
+#toastNoty div.info{background-color: #0080C1}
+#toastNoty div.warning{background-color:rgb(224, 138, 22)}
+#toastNoty div.error{background-color: rgb(230, 78, 78)}
+
+
+
+
+
+
 @media all and (max-width:1000px)
 {
 

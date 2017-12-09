@@ -9,9 +9,6 @@ var save = function(target,data,callback)
 {
 
   MongoClient.connect(url, function(err, db) {
-
-    if (err) throw err;
-
     db.collection(target).insertOne(data, function(err, result) {
       if (err) throw err;
       db.close();

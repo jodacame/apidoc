@@ -5,9 +5,10 @@ const fs          = require('fs');
 const Handlebars  = require('handlebars');
 
 /*
- * @param template Path with handlebars template
- * @param context Object data for template
- * @param callback Function callback for return html
+ * Compile handlebars template helper
+ * @param {String} template Path with handlebars template
+ * @param {Object} context data for template
+ * @param {Function} callback (html,error)
  * @return html
 */
 
@@ -19,7 +20,7 @@ var compile = function(template,context,callback){
             var source    = data.toString();
             var template  = Handlebars.compile(source);
             var html      = template(context);
-            callback(html);
+            callback(html,false);
           }
           else {
             callback(false,err);

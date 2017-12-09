@@ -16,10 +16,10 @@
 
           </div>
           <div class="col6 vertical-align text-dark bg-light">
-              <form method="POST" onsubmit="return app.submit(this,'register')">
+              <form method="POST" action="/account/register"   onsubmit="return app.sendForm(this,'register')">
                   <input type="email" required placeholder="Email" name="email" />
-                  <input type="password" required placeholder="Password" name="password" />
-                  <input type="password" required placeholder="Repeat Password" name="passwordr" />
+                  <input type="password" pattern=".{8,}" title="8 or more characters" required placeholder="Password" name="password" />
+                  <input type="password" pattern=".{8,}" title="8 or more characters" required placeholder="Repeat Password" name="passwordr" />
                   <button type="submit" class="bg-blue text-light">Create Account</button>
                   <a href="#" onclick="app.dialog.open('login-form')" class="link text-dark-light text-small onhover-text-bold">Already have an account?</a>
               </form>

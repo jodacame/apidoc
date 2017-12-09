@@ -1,6 +1,7 @@
 var app = {};
 app.temlates = [];
 app.dialog = {};
+app.cache   = [];
 var $ = app; // Do you like jQuery alias?  :) Ok... But remember .. this it's not jQuery :p
 
 app.toggleClass= function(el, _class) {
@@ -71,13 +72,6 @@ app.submit = function(form,callback){
   return false;
 }
 
-// Login
-
-login = function(res,err)
-{
-
-  return false;
-}
 
 
 app.sendForm = function(form,callback)
@@ -91,7 +85,9 @@ app.sendForm = function(form,callback)
 
 
     request.onreadystatechange = function(){
-      window[callback](request.responseText,request)
+      var DONE = 4;
+      if (request.readyState === DONE)
+        window[callback](JSON.parse(request.responseText),request)
     }
     request.open(form.method, form.action,true)
     request.setRequestHeader("Content-type", "application/json");
@@ -274,6 +270,49 @@ app.events = function(){
         return false;
     }
   }, true);
+}
+/* success,info,warning,error */
+app.toast = function(type,message)
+{
+  if (!document.getElementById('toastNoty')) {
+    var _elm       = document.createElement('div');
+    _elm.setAttribute("id",'toastNoty');
+    document.body.appendChild(_elm);
+    app.cache['toastNoty'] = _elm;
+  }
+
+
+    var _noty       = document.createElement('div');
+    _noty.classList.add('animated');
+    _noty.classList.add('bounceIn');
+    _noty.classList.add(type);
+    _noty.innerHTML = message;
+
+
+    _noty.onclick = function(){
+      this.remove();
+    }
+    setTimeout(function(){
+      if(_noty)
+      {
+        _noty.classList.remove('bounceIn');
+        _noty.classList.add('bounceOut');
+      }
+    },4000);
+
+    setTimeout(function(){
+      if(_noty)
+      {
+        _noty.remove();
+      }
+    },5000);
+
+
+
+
+
+    app.cache['toastNoty'].appendChild(_noty);
+
 }
 
 app.init();
