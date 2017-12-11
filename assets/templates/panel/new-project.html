@@ -1,0 +1,35 @@
+Hola
+  <div class="modal-dialog login animated bounceIn">
+    <div class="modal-content ">
+      <div class="modal-body row">
+          <div class="col6 text-light bg-blue">
+            <div class="row">
+                <h1 class="col12 nice-title">New Project</h1>
+                <strong class="col12 subtitle">Keep organized all your projects</strong>
+                <div class="col12 feature"><i class="fa fa-user-circle" aria-hidden="true"></i> Private projects</div>
+                <div class="col12 feature"><i class="fa fa-users" aria-hidden="true"></i> Share with your team</div>
+                <div class="col12 feature"><i class="fa fa-globe" aria-hidden="true"></i> Custom URL</div>
+                <div class="col12 feature"><i class="fa fa-smile-o" aria-hidden="true"></i> Yes! It's free</div>
+
+            </div>
+
+
+          </div>
+          <div class="col6 vertical-align text-dark bg-light">
+              <form method="POST" action="/account/panel/porject/create"   onsubmit="return app.sendForm(this,'createProject')">
+                  <input type="text" required placeholder="Project Name" name="name" />
+                  <input type="text" required placeholder="Description" name="description" />
+                  <div class="checkbox">
+                      <input id="public" type="checkbox" name="public" checked>
+                      <label for="public">Public</label>
+                  </div>
+
+
+                  <button type="submit" class="bg-blue text-light">Create</button>
+                  <a href="#" class="close-modal link text-dark-light text-small onhover-text-bold">CANCEL</a>
+
+              </form>
+          </div>
+      </div>
+
+  </div>

@@ -294,7 +294,10 @@ body.panel #main{
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
 }
-.modal-dialog .modal-body form input{
+
+
+form [type="text"],
+form [type="password"]{
   width: 100%;
   font-size: 16px;
   padding:5px;
@@ -307,17 +310,21 @@ body.panel #main{
   background-color: transparent;
   border-bottom:1px solid rgba(0, 0, 0, .1);
 }
-.modal-dialog .modal-body form input:focus,
-.modal-dialog .modal-body form input:active{
+form [type="text"]:focus,
+form [type="password"]:focus,
+form [type="text"]:active,
+form [type="password"]:active{
   border-bottom:1px solid rgba(0, 0, 0, .3);
 }
-.modal-dialog .modal-body form input:disabled,
-.modal-dialog .modal-body form input:read-only,
-.modal-dialog .modal-body form button[type='submit']:disabled{
+form [type="text"]:disabled,
+form [type="password"]:disabled,
+form [type="text"]:read-only,
+form [type="password"]:read-only,
+form button[type='submit']:disabled{
   opacity: .5;
   cursor: not-allowed;
 }
-.modal-dialog .modal-body form button[type='submit']{
+form button[type='submit']{
   width: 100%;
   padding:10px;
   cursor: pointer;
@@ -326,9 +333,102 @@ body.panel #main{
   margin-bottom: 15px;
 
 }
-.modal-dialog .modal-body form button[type='submit']:hover{
+form button[type='submit']:hover{
   opacity: .7;
 }
+form .checkbox{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  user-select: none;
+}
+form  .checkbox [type="checkbox"]:checked,
+form  .checkbox [type="checkbox"]:not(:checked)
+{
+    position: absolute;
+    left: -9999px;
+}
+form  .checkbox [type="checkbox"]:checked + label,
+form  .checkbox [type="checkbox"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+form  .checkbox [type="checkbox"]:checked + label:before,
+form  .checkbox [type="checkbox"]:not(:checked) + label:before
+{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 2px;
+}
+form  .checkbox [type="checkbox"]:checked + label:after,
+form  .checkbox [type="checkbox"]:not(:checked) + label:after
+{
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--main-blue);
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    border-radius: 1px;
+}
+form  .checkbox [type="checkbox"]:not(:checked) + label:after
+{
+    opacity: 0;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -o-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+form  .checkbox [type="checkbox"]:checked + label:after
+{
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+form  .checkbox [type="checkbox"]:active + label:after
+{
+    opacity: 1;
+    -webkit-transform: scale(2);
+    -moz-transform: scale(2);
+    -o-transform: scale(2);
+    -ms-transform: scale(2);
+    transform: scale(2);
+}
+
+form  .checkbox [type="checkbox"]:disabled:checked + label:before,
+form  .checkbox [type="checkbox"]:disabled:not(:checked) + label:before
+{
+    border-color: #ccc;
+    background-color: #eee;
+}
+form  .checkbox [type="checkbox"]:disabled:checked + label:after
+{
+    background: #aaa;
+}
+
+
+
+
+
 .modal-dialog .modal-body .col6 h1{
   font-size: 30px;
   font-weight: 400;
@@ -352,8 +452,11 @@ body.panel #main{
 
 }
 .modal-dialog .modal-body .col6 .feature i{
-  margin-right: 10px;
+  width: 22px;
   transition: all .2s linear;
+}
+.modal-dialog .modal-body form{
+  width: 100%;
 }
 .modal-dialog .modal-body .col6 .feature:hover i{
   transform: scale(1.6);
@@ -503,14 +606,20 @@ body.panel #main{
 }
 .sidebar ul li.title{
   display: block;
-  padding:20px;
+padding-left: 20px;
   padding-top: 15px;
   padding-bottom: 15px;
   opacity: .5;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
 }
 .sidebar ul li i{
   width: 30px;
   text-align: left;
+}
+.sidebar ul li.title i{
+  width: 35px;
 }
 .overlay{
   position: fixed;

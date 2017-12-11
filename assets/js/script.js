@@ -244,7 +244,7 @@ app.dialog.open = function(dialog)
     _elm.setAttribute("id",idDialog);
     _elm.classList.add('modal');
     _elm.innerHTML = app.temlates[dialog];
-    var closeButtons = _elm.querySelectorAll("button.close");
+    var closeButtons = _elm.querySelectorAll("button.close, .close-modal");
     for (i = 0; i < closeButtons.length; i++) {
       closeButtons[i].onclick = function(){
         app.dialog.close();
