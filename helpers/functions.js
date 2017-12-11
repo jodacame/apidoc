@@ -45,6 +45,11 @@ var mail = function(email,callback)
 {
 
   var emailSetting = _settings.email;
+  if(!emailSetting.host)
+  {
+    console.log("Email setting not found");
+    return false;
+  }
   delete emailSetting.sender;
 
   if(!email.from)
