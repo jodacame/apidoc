@@ -59,9 +59,15 @@
         <ul class="projects box-ishadow bg-blue-dark text-light-dark">
 
           {{#each projects}}
-          <li>
+          <li class="text-truncate">
             <a href="/account/panel/project/{{_id}}" >
-              <i class="fa fa-circle" aria-hidden="true"></i> {{name}}
+              <i class="fa fa-circle text-light-dark" aria-hidden="true"></i>
+              {{#if isPublic}}
+
+              {{else}}
+                <i title="Private Project" class="text-white fa fa-lock" aria-hidden="true"></i>
+              {{/if}}
+              {{name}}
             </a>
           </li>
           {{/each}}

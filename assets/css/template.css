@@ -609,6 +609,7 @@ form .link{
   padding:20px;
   padding-top: 15px;
   padding-bottom: 15px;
+
 }
 .sidebar ul li.title{
   display: block;
@@ -623,6 +624,13 @@ padding-left: 20px;
 .sidebar ul li i{
   width: 30px;
   text-align: left;
+}
+.sidebar ul li i:nth-child(2){
+  position: absolute;
+  right:5px;
+  top:20px;
+  font-size: 12px;
+  opacity: .7;
 }
 .sidebar ul li.title i{
   width: 35px;
