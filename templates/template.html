@@ -27,7 +27,7 @@
       <div class="{{#if logged}} container-fluid  {{else}} container {{/if}}">
           <span class="cursor-pointer" onclick="app.toggleClass(document.querySelector('body'),'menu-open')"><i class="fa fa-bars"></i><span class="title-app">{{setting.website.title}}</span></span>
           {{#if logged}}
-            <a href="/account/settings" class="profile">
+            <a href="/account/panel/settings" class="profile">
               <img src="{{gravatar user.email size=64}}" />
               <strong>Welcome</strong>
               <span class="email">{{user.email}}</span>
@@ -60,7 +60,7 @@
           <li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i> New folder</a></li>
         </ul>
         <ul class="text-light-dark">
-          <li><a href="/account/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a></li> 
+          <li><a href="/account/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a></li>
         </ul>
       {{/if}}
     </div>
