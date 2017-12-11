@@ -2,7 +2,7 @@
 const crud        = require("../models/crud");
 const template        = require("../helpers/template");
 const functions   = require("../helpers/functions");
-const session     = require('express-session')
+//const session     = require('express-session')
 
 /*
  * @param {String:POST} email
@@ -83,7 +83,6 @@ var register = function(req,res,next){
                   login(req,res,next); // Auto-Login
                   //res.status(200).json({success:true,'message':{type:'success',text: "You have successfully registered"}});
               });
-
           });
       }else {
         res.status(403).json({success:false,'message':{ type:'error',text: "Email already registered"}});
@@ -154,10 +153,20 @@ var recovery = function(req,res,next)
     }
 }
 
+var logout = function(req,res,next)
+{
+  req.session.destroy(function(err) {
+    res.redirect('/');
+    res.end();
+    return false;
+  })
+
+}
 module.exports = {
   login,
   register,
   isLogged,
   sendRecoveryCode,
-  recovery
+  recovery,
+  logout
 }

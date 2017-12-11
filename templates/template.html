@@ -24,10 +24,10 @@
   </head>
   <body class="{{section}}">
     <div class="navbar text-dark  bg-white {{#if logged}} border-bottom border-gray {{/if}}">
-      <div class="container">
+      <div class="{{#if logged}} container-fluid  {{else}} container {{/if}}">
           <span class="cursor-pointer" onclick="app.toggleClass(document.querySelector('body'),'menu-open')"><i class="fa fa-bars"></i><span class="title-app">{{setting.website.title}}</span></span>
           {{#if logged}}
-
+            <a href="/account/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
           {{else}}
             <a href="#" onclick="app.dialog.open('login-form')">Login</a>
             <a href="#" onclick="app.dialog.open('signup-form')">Sign Up</a>

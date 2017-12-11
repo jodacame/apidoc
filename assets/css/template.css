@@ -187,7 +187,10 @@ body.panel #main{
    max-width: 1200px;
    margin: 0 auto;
 }
-
+.container-fluid{
+  width: 100%;
+  margin: 0 auto;
+}
 /* MODALS */
 .modal{
   position: fixed;
@@ -484,4 +487,20 @@ body.panel #main{
     padding-left: 10px;
     padding-right: 10px;
   }
+  .modal-dialog{
+    width: 100%;
+    left:auto;
+    top:auto;
+    margin:auto;
+    position: absolute;
+
+  }
+  .modal{
+    overflow: auto;
+  }
+  .modal-dialog .modal-body .col6:last-child,
+  .modal-dialog .modal-body .col6{
+    border-radius: 0;
+  }
+  
 }
