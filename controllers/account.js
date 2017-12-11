@@ -194,7 +194,7 @@ var verify = function(req,res,next)
               functions.mail(email);
         });
       }else {
-        if(code == result.verifyCode)
+        if(code == result.verifyCode && code == 6)
         {
           var update =  { $set: { verified: true } };
           crud.update("account",{_id:result._id},update,function(err,result){
