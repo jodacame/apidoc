@@ -57,7 +57,7 @@
         </ul>
         <ul class="bg-blue-dark text-light-dark">
           <li class="title"><i class="fa fa-rocket" aria-hidden="true"></i>Projects</li>
-          <li><a href="#" onclick="app.dialog.open('panel/new-project')"><i class="fa fa-plus" aria-hidden="true"></i> New</a></li>
+          <li><a href="#" onclick="app.removeClass(document.querySelector('body.menu-open'),'menu-open'); app.dialog.open('panel/new-project')"><i class="fa fa-plus" aria-hidden="true"></i> New</a></li>
         </ul>
         <ul class="text-light-dark">
           <li><a href="/account/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a></li>

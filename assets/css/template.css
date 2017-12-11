@@ -755,8 +755,8 @@ body.menu-open .sidebar{
   }
   .modal-dialog{
     width: 100%;
-    left:auto;
-    top:auto;
+    left:0;
+    top:0;
     margin:auto;
     position: absolute;
 
