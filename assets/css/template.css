@@ -5,6 +5,7 @@
   --main-light-dark: rgba(255, 255, 255,.6);
   --main-gray: rgb(233, 233, 233);
   --main-yellow: rgb(224, 221, 76);
+  --main-blue-dark: rgba(0, 101, 152, 1);
   --main-blue: rgba(0, 128, 193,1);
   --main-blue-light: rgba(0, 128, 193,.6);
   --main-red: rgb(230, 78, 78);
@@ -34,11 +35,19 @@
 html, body {
     height: 100%;
     font-family: 'Roboto', sans-serif;
-
+    font-size: 16px;
+    color:rgba(0, 0, 0, .8);
 
 
 }
-
+body.panel{
+  padding-top: 60px;
+}
+body.panel #main{
+  height: 100%;
+  overflow: auto;
+  padding:10px;
+}
 /* Backgrounds */
 .bg-white{ background-color: var(--main-white) }
 .bg-light{ background-color: var(--main-light) }
@@ -54,12 +63,12 @@ html, body {
 
 .bgg-blue{
   background: var(--main-blue);
-  background: -moz-linear-gradient(top, var(--main-blue) 50%, var(--main-blue-light) 100%);
-  background: -webkit-linear-gradient(top, var(--main-blue) 50%, var(--main-blue-light) 100%);
-  background: -o-linear-gradient(top, var(--main-blue) 50%, var(--main-blue-light) 100%);
-  background: -ms-linear-gradient(top, var(--main-blue) 50%, var(--main-blue-light) 100%);
-  background: linear-gradient(to bottom, var(--main-blue) 50%, var(--main-blue-light) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--main-blue)', endColorstr='var(--main-blue-light)', GradientType=0 );
+  background: -moz-linear-gradient(top, var(--main-blue-dark) 50%, var(--main-blue) 100%);
+  background: -webkit-linear-gradient(top, var(--main-blue-dark) 50%, var(--main-blue) 100%);
+  background: -o-linear-gradient(top, var(--main-blue-dark) 50%, var(--main-blue) 100%);
+  background: -ms-linear-gradient(top, var(--main-blue-dark) 50%, var(--main-blue) 100%);
+  background: linear-gradient(to bottom, var(--main-blue-dark) 50%, var(--main-blue) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--main-blue-dark)', endColorstr='var(--main-blue)', GradientType=0 );
 }
 
 
