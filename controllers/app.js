@@ -12,8 +12,9 @@ const app = express();
 
 
 /* Global setting */
-crud.find("settings",{},function(err,result){
+crud.findOne("settings",{},function(err,result){
   global._settings = result;
+
 });
 
 app.enable('trust proxy');
@@ -45,8 +46,9 @@ app.get("/account/panel",account.isLogged,website.panel);
 
 /* Account */
 app.post("/account/login",account.login);
-
 app.post("/account/register",account.register);
+app.post("/account/sendRecoveryCode",account.sendRecoveryCode);
+app.post("/account/recovery",account.recovery);
 
 
 module.exports = app;

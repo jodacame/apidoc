@@ -72,13 +72,7 @@ app.removeClass = function(elements, _class) {
   }
 }
 
-app.submit = function(form,callback){
-  var data = app.serialize(form);
-  app.ajax('POST',form.target,data,function(res,err){
-    window[callback](res,err);
-  });
-  return false;
-}
+
 
 
 
@@ -104,7 +98,9 @@ app.sendForm = function(form,callback)
     return false;
 }
 // End Login
-app.ajax = function (type,url,data,callback,format,enctype)
+
+
+app.ajax = function (type,url,data,callback,format)
 {
   var xhr = new XMLHttpRequest();
   console.log(type,url);
@@ -334,22 +330,37 @@ app.sendRecoveryCode = function(elm)
        app.toast("warning",form.email.validationMessage);
        return false;
   }
-  app.removeClass(elm,"text-underline");
-  app.removeClass(elm,"text-strong");
-  app.removeClass(elm,"cursor-pointer");
 
 
-  app.addClass(elm.nextElementSibling,"text-strong");
+  app.ajax("POST","/account/sendRecoveryCode",{email:form.email.value},function(res){
+      if(res.success)
+      {
+          app.removeClass(elm,"text-underline");
+          app.removeClass(elm,"text-strong");
+          app.removeClass(elm,"cursor-pointer");
 
-  elm.removeAttribute("onclick");
 
-  /* TODO: Send email with recovery code */
-  form.email.readOnly = true;
-  var email = form.email.value;
-  form.password.disabled = false;
-  form.passwordr.disabled = false;
-  form.recovery.disabled = false;
-  form.querySelector("button[type='submit']").disabled = false;
-  form.password.focus();
+          app.addClass(elm.nextElementSibling,"text-strong");
+
+          elm.removeAttribute("onclick");
+
+          /* TODO: Send email with recovery code */
+          form.email.readOnly     = true;
+          var email               = form.email.value;
+          form.password.disabled  = false;
+          form.passwordr.disabled = false;
+          form.recovery.disabled  = false;
+          form.querySelector("button[type='submit']").disabled = false;
+          form.password.focus();
+      }
+      else {
+          form.email.focus();
+          form.email.value = '';
+          app.addClass(form.email,"shake",2000);
+      }
+      app.toast(res.message.type,res.message.text);
+  });
+
+
 }
 app.init();

@@ -20,7 +20,7 @@ var login = function(req,res,next){
       req.session.user    = result;
       delete result._id;
       delete result.password;
-      res.status(404).json({success:true,redirect:'/account/panel','message':{ type:'success',text: "You have successfully login, Please wait..."}});
+      res.status(200).json({success:true,redirect:'/account/panel','message':{ type:'success',text: "You have successfully login, Please wait..."}});
     }else {
       res.status(404).json({success:false,'message':{ type:'error',text: "Email and password don't match"}});
     }
@@ -73,13 +73,15 @@ var register = function(req,res,next){
                   console.log(html);
                   email.html    = html;
                   email.to      = save.email;
-                  email.subject = 'Your verirication code';
+                  email.subject = 'Your verification code';
                   email.text    = '';
                   if(err)
                     console.log(err);
                   else
                     functions.mail(email);
-                  res.status(200).json({success:true,'message':{type:'success',text: "You have successfully registered"}});
+
+                  login(req,res,next); // Auto-Login
+                  //res.status(200).json({success:true,'message':{type:'success',text: "You have successfully registered"}});
               });
 
           });
@@ -94,8 +96,68 @@ var register = function(req,res,next){
   }
 }
 
+var sendRecoveryCode = function(req,res,next){
+  var emailAccount       = req.body.email;
+  crud.findOne("account",{email:emailAccount},function(err,result){
+    if(result)
+    {
+      var recoveryCode = functions.generateString(8);
+      var update =  { $set: { recoveryCode: recoveryCode } };
+      crud.update("account",{_id:result._id},update,function(err,result){
+          res.status(200).json({success:true,'message': {type:'success',text:"We have sent you an email including the recovery code for your account"}});
+          template.compile('./templates/emails/recovery.html',{recoveryCode:recoveryCode,email:emailAccount},function(html,err){
+              template.compile('./templates/emails/template.html',{message:html},function(html,err){
+                let email     = {};
+                email.html    = html;
+                email.to      = emailAccount;
+                email.subject = 'Your recovery code';
+                email.text    = 'Account recovery';
+                functions.mail(email);
+              });
+          });
+      });
+    }
+    else{
+      res.status(403).json({success:false,'message': {type:'error',text:"Account not found"}});
+
+    }
+  });
+}
+
+var recovery = function(req,res,next)
+{
+    var email           = req.body.email;
+    var password        = functions.sha1(req.body.password);
+    var passwordr       = functions.sha1(req.body.passwordr);
+    var recoveryCode    = req.body.recovery;
+    if(password == passwordr)
+    {
+      if(recoveryCode.length == 8)
+      {
+        crud.findOne("account",{email:email,recoveryCode:recoveryCode},function(err,result){
+          if(result)
+          {
+            var update =  { $set: { recoveryCode: functions.generateString(8),password:password } };
+            crud.update("account",{_id:result._id},update,function(err,result){
+              res.status(200).json({success:true,'message': {type:'success',text:"your password has been successfully changed"}});
+            });
+          }else {
+            res.status(400).json({success:false,'message': {type:'error',text:"Invalid Recovery Code"}});
+          }
+        });
+      }else {
+        res.status(400).json({success:false,'message': {type:'error',text:"Invalid Recovery Code"}});
+      }
+    }
+    else {
+      res.status(400).json({success:false,'message': {type:'warning',text:"Password don't match"}});
+    }
+}
+
 module.exports = {
   login,
   register,
-  isLogged
+  isLogged,
+  sendRecoveryCode,
+  recovery
 }

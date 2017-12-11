@@ -24,6 +24,7 @@ var compile = function(template,context,callback){
             callback(html,false);
           }
           else {
+            console.log(err);
             callback(false,err);
           }
     });

@@ -17,12 +17,12 @@
 
           </div>
           <div class="col6 vertical-align text-dark bg-light">
-              <form method="POST" action="/account/login"  id="frm-recovery" onsubmit="return app.sendForm(this,'login')">
+              <form method="POST" action="/account/recovery"  id="frm-recovery" onsubmit="return app.sendForm(this,'recovery')">
 
                   <input type="email" class="animated" title="Your Email" required placeholder="Email" name="email" />
                   <input type="password" disabled required placeholder="New Password" name="password" />
                   <input type="password" disabled required placeholder="Repeat Password" name="passwordr" />
-                  <input type="String" disabled required placeholder="Recovery Code" name="recovery" />
+                  <input type="text" class="text-bold text-gray" pattern=".{8}"   disabled required  placeholder="Recovery Code" name="recovery" />
                   <button type="submit" disabled class="bg-blue text-light">Update Pasword</button>
               </form>
           </div>

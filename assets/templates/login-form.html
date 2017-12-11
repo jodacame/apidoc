@@ -18,7 +18,7 @@
           <div class="col6 vertical-align text-dark bg-light">
               <form method="POST" action="/account/login"   onsubmit="return app.sendForm(this,'login')">
                   <input type="email" required placeholder="Email" name="email" />
-                  <input type="password" required placeholder="Password" name="password" />
+                  <input type="password" pattern=".{8,}"  required placeholder="Password" name="password" />
                   <button type="submit" class="bg-blue text-light">Login</button>
                   <a href="#" onclick="app.dialog.open('recovery-form')"  class="link text-dark-light text-small onhover-text-bold">Forgot your password ?</a>
                   <a href="#" onclick="app.dialog.open('signup-form')" class="link text-dark-light text-small onhover-text-bold">Sign Up!, It's Free</a>

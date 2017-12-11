@@ -38,6 +38,12 @@ var update = function(target,filter,data,callback)
   });
 }
 
+/*
+ * @param {String} name collection
+ * @param {Object} filter
+ * @param {Function} Callback (err,result)
+ */
+
 var find = function(target,filter,callback)
 {
   MongoClient.connect(url, function(err, db) {
@@ -82,5 +88,6 @@ module.exports = {
   save,
   find,
   findOne,
-  createUnique
+  createUnique,
+  update
 }
