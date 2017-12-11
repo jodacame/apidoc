@@ -47,7 +47,7 @@ var update = function(target,filter,data,callback)
 var find = function(target,filter,callback)
 {
   MongoClient.connect(url, function(err, db) {
-    db.collection(target).findOne(filter, function(err, result) {
+    db.collection(target).find(filter).toArray(function(err, result) {
       db.close();
       callback(err,result);
     });

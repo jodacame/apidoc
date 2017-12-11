@@ -4,6 +4,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const compression = require('compression')
 const website   = require("./website.js")
+const panel     = require("./panel.js")
 const account   = require("./account.js")
 const session     = require('express-session')
 const crud        = require("../models/crud");
@@ -44,7 +45,7 @@ app.use(express.static('assets'))
 
 /* Website Routes */
 app.get("/",website.home);
-app.get("/account/panel",account.isLogged,website.panel);
+
 
 /* Account */
 app.post("/account/login",account.login);
@@ -54,6 +55,9 @@ app.post("/account/recovery",account.recovery);
 app.post("/account/verify",account.isLogged,account.verify);
 app.get("/account/logout",account.logout);
 
+/* Panel */
+app.get("/account/panel",account.isLogged,website.panel);
+app.post("/account/panel/project",account.isLogged,panel.createProject);
 
 
 module.exports = app;

@@ -2,6 +2,7 @@
 
 const session     = require('express-session')
 const template =  require("../helpers/template.js")
+const projects    = require("../models/projects");
 
 var home = function(req,res,next)
 {
@@ -24,12 +25,16 @@ var home = function(req,res,next)
 
 var panel = function(req,res,next)
 {
-  template.compile('./templates/panel/dashboard.html',{user:req.session.user},function(html,err){
-    let context = {page:html, title: 'Panel',logged:true,user:req.session.user,description:'Panel | ApiDoc',section:"panel"}
-    template.compile('./templates/template.html',context,function(html,err){
-        res.status(200).send(html);
+  projects.get({owner:req.session.user.email},function(err,result){
+
+    template.compile('./templates/panel/dashboard.html',{user:req.session.user,projects:result},function(html,err){
+      let context = {page:html, title: 'Panel',projects:result,logged:true,user:req.session.user,description:'Panel | ApiDoc',section:"panel"}
+      template.compile('./templates/template.html',context,function(html,err){
+          res.status(200).send(html);
+      });
     });
   });
+
 }
 
 module.exports = {

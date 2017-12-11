@@ -16,11 +16,11 @@ Hola
 
           </div>
           <div class="col6 vertical-align text-dark bg-light">
-              <form method="POST" action="/account/panel/porject/create"   onsubmit="return app.sendForm(this,'createProject')">
+              <form method="POST" action="/account/panel/project/"   onsubmit="return app.sendForm(this,'createProject')">
                   <input type="text" required placeholder="Project Name" name="name" />
                   <input type="text" required placeholder="Description" name="description" />
                   <div class="checkbox">
-                      <input id="public" type="checkbox" name="public" checked>
+                      <input id="public" type="checkbox" value="1" name="public" checked>
                       <label for="public">Public</label>
                   </div>
 

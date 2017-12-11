@@ -136,7 +136,10 @@ body.home .navbar{
     background-color: rgba(255, 255, 255, .1);
     color:rgba(255, 255, 255, .9);
 }
-
+.sidebar .projects{
+  max-height: 200px;
+  overflow-x: auto;
+}
 #verified{
   position: fixed;
   bottom:10px;
