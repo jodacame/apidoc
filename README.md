@@ -9,6 +9,9 @@ API Rest Documentation Generator
 ```bash
 npm install
 ```
+```bash
+mongoimport --db users --collection settings --file settings.json
+```
 
 **Runing**
 ```bash
