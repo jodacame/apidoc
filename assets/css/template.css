@@ -202,7 +202,7 @@ body.panel #main{
   height: 100%;
   top:0;
   left:0;
-  z-index: 99999;
+  z-index: 999999;
 }
 .modal-dialog .modal-content{
   height: 100%;
@@ -465,7 +465,7 @@ form  .checkbox [type="checkbox"]:disabled:checked + label:after
   transform: scale(1.6);
   transition: all .2s linear;
 }
-.modal-dialog .modal-body form .link{
+form .link{
   text-align: center;
   display: block;
   padding-top:5px;
@@ -720,7 +720,9 @@ body.menu-open .sidebar{
   transform: translate3d(0px,0,0);
 
 }
-
+.hide{
+  display: none !important;
+}
 
 @media all and (max-width:1000px)
 {

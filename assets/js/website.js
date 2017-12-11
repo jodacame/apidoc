@@ -28,7 +28,7 @@ var verify = function(res,err,form)
 {
   form.code.value = '';
   form.code.focus();
-  if(res.success){
+  if(res.success && res.redirect){
     window.location.href = res.redirect;
   }
   app.toast(res.message.type,res.message.text);

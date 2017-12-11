@@ -68,11 +68,11 @@
       {{#if user.verified}}
         <!-- Account Verified! -->
       {{else}}
-        <div id="verified" class="bg-light  animated bounceIn">
+        <div id="verified" class="bg-light  animated wobble">
           <form method="POST"  autocomplete="off" action="/account/verify"   onsubmit="return app.sendForm(this,'verify')">
-            <input name="code" autocomplete="off" type="text" class=" text-center" required placeholder="CODE" />
+            <input name="code" autocomplete="off" type="text" class=" text-center" required placeholder="YOUR CODE HERE" />
             <button type="submit" class="bg-green text-light">Verify My Account</button>
-            <button type="submit" onclick="this.parentNode.code.value=999999999" class="link text-dark text-small">Send Code Again</button>
+            <button type="submit" onclick="this.parentNode.code.value=999999999;app.addClass(this,'hide');" class="text-dark-light text-small onhover-text-bold">Send Code Again</button>
 
           </form>
         </div>

@@ -272,7 +272,7 @@ app.isVerified = function()
   {
       setInterval(function(){
           app.toast("warning","Please verify your account");
-      },10000);
+      },60000);
   }
 }
 app.events = function(){
