@@ -27,7 +27,12 @@
       <div class="{{#if logged}} container-fluid  {{else}} container {{/if}}">
           <span class="cursor-pointer" onclick="app.toggleClass(document.querySelector('body'),'menu-open')"><i class="fa fa-bars"></i><span class="title-app">{{setting.website.title}}</span></span>
           {{#if logged}}
-            <a href="/account/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+            <a href="/account/settings" class="profile">
+              <img src="{{gravatar user.email size=64}}" />
+              <strong>Welcome</strong>
+              <span class="email">{{user.email}}</span>
+            </a>
+
           {{else}}
             <a href="#" onclick="app.dialog.open('login-form')">Login</a>
             <a href="#" onclick="app.dialog.open('signup-form')">Sign Up</a>
@@ -40,11 +45,24 @@
         {{{page}}}
     </div>
 
-    <div class=" sidebar bgg-blue  box-left-ishadow ">
+    <div class=" sidebar bg-blue  ">
       <i class="fa fa-close cursor-pointer text-light" onclick="app.toggleClass(document.querySelector('body.menu-open'),'menu-open')"></i>
       <div class="header">
         <h1 class="title-app text-center text-light">{{{setting.website.title}}}</h1>
       </div>
+      {{#if logged}}
+        <ul class="text-light-dark">
+          <li><a href="/account/panel"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a></li>
+          <li><a href="/account/panel/settings"><i class="fa fa-gear" aria-hidden="true"></i> Settings</a></li>
+        </ul>
+        <ul class="bg-blue-dark text-light-dark">
+          <li class="title"><i class="fa fa-folder-o" aria-hidden="true"></i>Folders</li>
+          <li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i> New folder</a></li>
+        </ul>
+        <ul class="text-light-dark">
+          <li><a href="/account/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li> 
+        </ul>
+      {{/if}}
     </div>
 
     <div class="overlay cursor-pointer" onclick="app.toggleClass(document.querySelector('body.menu-open'),'menu-open')"></div>

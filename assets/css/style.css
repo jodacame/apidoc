@@ -1,111 +1,7 @@
 
-/* APP */
-
-body{
-  padding-left: 250px;
-}
-.navbar{
-  width: 100%;
-  height: 60px;
-  vertical-align: middle;
-  line-height: 60px;
-  box-sizing: 0px 0px 6px rgba(0,0,0,.1);
-  position: absolute;
-  top:0;
-  left:0;
-  z-index: 9999;
-  box-sizing: border-box;
-}
-.navbar a{
-  display: inline-block;
-  line-height: 40px;
-  height: 40px;
-  margin-top:10px;
-  margin-bottom:10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  text-decoration: none;
-  float: right;
-  text-transform:capitalize;
-  border-radius: 4px;
-  transition: all .2s linear;
-  margin-left: 10px;
-
-}
-
-.navbar a:hover{
-  background-color: rgba(255, 255, 255, .4);
-
-  transform: scale(1.1);
-}
-.navbar .fa-bars{
-  display: none;
-  padding-right: 10px;
-}
-.navbar .title-app{
-  display: none;
-  font-size: 25px;
-  font-weight: bold;
-}
-.sidebar{
-  position: fixed;
-  width: 250px;
-  height: 100%;
-  top:0;
-  left: 0;
-  transition: all .3s linear;
-  transform: translate3d(0px,0,0);
-  z-index: 999999;
 
 
-}
-.sidebar .fa-close {
-  position: absolute;
-  right:10px;
-  top:10px;
-  padding:5px;
-  display: none;
 
-}
-.sidebar .header{
-  width: 100%;
-  height: 60px;
-  vertical-align: middle;
-  line-height: 60px;
-  box-sizing: 0px 0px 6px rgba(0,0,0,.1);
-  padding-left: 20px;
-  padding-right: 20px;
-  box-sizing: border-box;
-  text-transform: uppercase;
-
-  letter-spacing: 6px;
-  font-size: 20px;
-  font-weight: normal;
-
-}
-
-.overlay{
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 100%;
-  top:0;
-  left: 0;
-  z-index: 999998;
-  transition: all .3s linear;
-  display: none;
-
-}
-body.menu-open .overlay{
-  transition: all .3s linear;
-  display: block;
-
-}
-body.menu-open .sidebar{
-  transition: all .3s linear;
-  transform: translate3d(0px,0,0);
-
-}
 /* HOME */
 body.home .overlay,
 body.home .sidebar{
@@ -234,29 +130,15 @@ body.home .navbar{
   transform: scale(.7);
   transition: all .2s linear;
 }
+
+.sidebar ul li a:hover,
+.sidebar ul li.active a{
+    background-color: rgba(255, 255, 255, .1);
+    color:rgba(255, 255, 255, .9);
+}
 @media all and (max-width:1000px)
 {
-  .sidebar .fa-close{
-    display: block;
-    z-index: 20;
-  }
-  .navbar .fa-bars{
-    display: inline-block;
-  }
-  body{
-    padding-left: 0px;
-  }
-  .sidebar{
-    transform: translate3d(-270px,0,0);
-    box-shadow: 0px 0px 16px rgba(0, 0, 0, .3);
 
-  }
-  .navbar .title-app{
-    display: inline-block;
-  }
-  body.home .navbar .fa-bars{
-    display: none;
-  }
 
   .hero{
     padding-top:80px;

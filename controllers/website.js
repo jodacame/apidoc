@@ -25,7 +25,7 @@ var home = function(req,res,next)
 var panel = function(req,res,next)
 {
   template.compile('./templates/panel/dashboard.html',{user:req.session.user},function(html,err){
-    let context = {page:html, title: 'Panel',logged:true,description:'Panel | ApiDoc',section:"panel"}
+    let context = {page:html, title: 'Panel',logged:true,user:req.session.user,description:'Panel | ApiDoc',section:"panel"}
     template.compile('./templates/template.html',context,function(html,err){
         res.status(200).send(html);
     });

@@ -3,6 +3,7 @@
 const path        = require('path');
 const fs          = require('fs');
 const Handlebars  = require('handlebars');
+const crypto      = require('crypto')
 
 /*
  * Compile handlebars template helper
@@ -29,6 +30,15 @@ var compile = function(template,context,callback){
           }
     });
 }
+
+
+Handlebars.registerHelper('gravatar', (context, options) => {
+  let email = context;
+  let size = (typeof (options.hash.size) === 'undefined') ? 32 : options.hash.size;
+  let hash = crypto.createHash('md5').update(email).digest('hex');
+
+  return `https://www.gravatar.com/avatar/${hash}?s=${size}`;
+});
 
 module.exports = {
   compile
