@@ -30,11 +30,19 @@ var login = function(req,res,next){
 var isLogged = function(req,res,next){
   if(!req.session.logged)
   {
-    res.redirect('/');
-    res.end();
-    return false;
+    if(!req.xhr)
+    {
+      res.redirect('/');
+      res.end();
+      return false;
+    }else {
+      res.status(403).json({success:false,'message':{ type:'error',text: "You're not logged"}});
+    }
   }
+  else {
   next()
+  }
+
 }
 
 /*
@@ -162,11 +170,56 @@ var logout = function(req,res,next)
   })
 
 }
+
+var verify = function(req,res,next)
+{
+  var code           = req.body.code;
+
+  crud.findOne("account",{email:req.session.user.email},function(err,result){
+    if(result)
+    {
+      if(code == "999999999")
+      {
+        res.status(200).json({success:true,'message': {type:'success',text:"We have sent you an email including the verification code for your account"}});
+        let message        = '<strong>hello!</strong><br><br>'+result.email+'<br><br><strong>Welcome to '+_settings.website.title+"</strong><br><br>Your verification code is:<br><br><h2 style='font-family: courier'>"+result.verifyCode+"</h2><br>";
+        template.compile('./templates/emails/template.html',{message:message},function(html,err){
+            let email     = {};
+            email.html    = html;
+            email.to      = result.email;
+            email.subject = 'Your verification code';
+            email.text    = '';
+            if(err)
+              console.log(err);
+            else
+              functions.mail(email);
+        });
+      }else {
+        if(code == result.verifyCode)
+        {
+          var update =  { $set: { verified: true } };
+          crud.update("account",{_id:result._id},update,function(err,result){
+              req.session.user.verified = true;
+              res.status(200).json({redirect:"/",success:true,'message': {type:'success',text:"Your account has been successfully verified"}});
+          });
+
+        }else {
+          res.status(404).json({success:false,'message': {type:'error',text:"Invalid Verification Code"}});
+
+        }
+      }
+    }else {
+      res.status(404).json({success:false,'message': {type:'error',text:"Account not found"}});
+    }
+  });
+
+
+}
 module.exports = {
   login,
   register,
   isLogged,
   sendRecoveryCode,
   recovery,
-  logout
+  logout,
+  verify
 }

@@ -89,7 +89,7 @@ app.sendForm = function(form,callback)
     request.onreadystatechange = function(){
       var DONE = 4;
       if (request.readyState === DONE)
-        window[callback](JSON.parse(request.responseText),request)
+        window[callback](JSON.parse(request.responseText),request,form)
     }
     request.open(form.method, form.action,true)
     request.setRequestHeader("Content-type", "application/json");
@@ -263,8 +263,18 @@ app.dialog.open = function(dialog)
 
 app.init = function(){
   app.events();
+  app.isVerified();
 }
 
+app.isVerified = function()
+{
+  if(document.querySelector("#verified"))
+  {
+      setInterval(function(){
+          app.toast("warning","Please verify your account");
+      },10000);
+  }
+}
 app.events = function(){
   /* Close all dialogs when press ESC key */
   window.addEventListener('keydown', function(e){

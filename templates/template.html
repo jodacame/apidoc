@@ -64,7 +64,20 @@
         </ul>
       {{/if}}
     </div>
+    {{#if logged}}
+      {{#if user.verified}}
+        <!-- Account Verified! -->
+      {{else}}
+        <div id="verified" class="bg-light  animated bounceIn">
+          <form method="POST"  autocomplete="off" action="/account/verify"   onsubmit="return app.sendForm(this,'verify')">
+            <input name="code" autocomplete="off" type="text" class=" text-center" required placeholder="CODE" />
+            <button type="submit" class="bg-green text-light">Verify My Account</button>
+            <button type="submit" onclick="this.parentNode.code.value=999999999" class="link text-dark text-small">Send Code Again</button>
 
+          </form>
+        </div>
+      {{/if}}
+    {{/if}}
     <div class="overlay cursor-pointer" onclick="app.toggleClass(document.querySelector('body.menu-open'),'menu-open')"></div>
     <!-- Main JavaScript -->
     <script src="/js/script.js" charset="utf-8"></script>

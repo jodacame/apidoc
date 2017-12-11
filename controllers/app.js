@@ -51,7 +51,9 @@ app.post("/account/login",account.login);
 app.post("/account/register",account.register);
 app.post("/account/sendRecoveryCode",account.sendRecoveryCode);
 app.post("/account/recovery",account.recovery);
+app.post("/account/verify",account.isLogged,account.verify);
 app.get("/account/logout",account.logout);
+
 
 
 module.exports = app;

@@ -23,3 +23,14 @@ var recovery = function(res,err)
   }
   app.toast(res.message.type,res.message.text)
 }
+
+var verify = function(res,err,form)
+{
+  form.code.value = '';
+  form.code.focus();
+  if(res.success){
+    window.location.href = res.redirect;
+  }
+  app.toast(res.message.type,res.message.text);
+
+}

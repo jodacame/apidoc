@@ -12,6 +12,7 @@
   --main-dark: rgb(31, 31, 31);
   --main-dark-light: rgba(0, 0, 0,.7);
   --main-orange: rgb(224, 138, 22);
+  --main-green: #4CAF50;
 }
 
 
@@ -59,6 +60,7 @@ body.panel #main{
 .bg-dark{ background-color: var(--main-dark) }
 .bg-dark-light{ background-color: var(--main-dark-light) }
 .bg-orange{ background-color: var(--main-orange) }
+.bg-green{ background-color: var(--main-green) }
 
 /* Gradients */
 
@@ -331,6 +333,7 @@ form button[type='submit']{
   border-radius: 4px;
   margin-top: 15px;
   margin-bottom: 15px;
+  user-select: none;
 
 }
 form button[type='submit']:hover{
