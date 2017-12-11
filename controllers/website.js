@@ -22,7 +22,6 @@ var home = function(req,res,next)
 }
 
 
-
 var panel = function(req,res,next)
 {
 

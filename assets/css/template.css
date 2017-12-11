@@ -1,4 +1,17 @@
 /* Colors */
+:root {
+  --main-white: rgb(255, 255, 255);
+  --main-light: rgb(255, 255, 255);
+  --main-light-dark: rgba(255, 255, 255,.6);
+  --main-gray: rgb(233, 233, 233);
+  --main-yellow: rgb(224, 221, 76);
+  --main-blue: rgba(0, 128, 193,1);
+  --main-blue-light: rgba(0, 128, 193,.6);
+  --main-red: rgb(230, 78, 78);
+  --main-dark: rgb(31, 31, 31);
+  --main-dark-light: rgb(62, 62, 62);
+  --main-orange: rgb(224, 138, 22);
+}
 
 
 /* Reset */
@@ -27,43 +40,76 @@ html, body {
 }
 
 /* Backgrounds */
-.bg-white{ background-color: rgb(255, 255, 255); }
-.bg-light{ background-color: rgb(255, 255, 255); }
-.bg-gray{ background-color: rgb(233, 233, 233); }
-.bg-yellow{ background-color: rgb(224, 221, 76) }
-.bg-blue{ background-color: #0080C1 }
-.bg-red{ background-color: rgb(230, 78, 78) }
-.bg-dark{ background-color: rgb(31, 31, 31) }
-.bg-dark-light{ background-color: rgb(62, 62, 62) }
-.bg-orange{ background-color: rgb(224, 138, 22) }
+.bg-white{ background-color: var(--main-white) }
+.bg-light{ background-color: var(--main-light) }
+.bg-gray{ background-color: var(--main-gray) }
+.bg-yellow{ background-color: var(--main-yellow) }
+.bg-blue{ background-color: var(--main-blue) }
+.bg-red{ background-color: var(--main-red) }
+.bg-dark{ background-color: var(--main-dark) }
+.bg-dark-light{ background-color: var(--main-dark-light) }
+.bg-orange{ background-color: var(--main-orange) }
+
+/* Gradients */
+
+.bgg-blue{
+  background: var(--main-blue);
+  background: -moz-linear-gradient(top, var(--main-blue) 50%, var(--main-blue-light) 100%);
+  background: -webkit-linear-gradient(top, var(--main-blue) 50%, var(--main-blue-light) 100%);
+  background: -o-linear-gradient(top, var(--main-blue) 50%, var(--main-blue-light) 100%);
+  background: -ms-linear-gradient(top, var(--main-blue) 50%, var(--main-blue-light) 100%);
+  background: linear-gradient(to bottom, var(--main-blue) 50%, var(--main-blue-light) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--main-blue)', endColorstr='var(--main-blue-light)', GradientType=0 );
+}
+
 
 /* Texts */
-.text-light-dark{color:rgba(255, 255, 255,.6)}
-.text-light{color:rgb(255, 255, 255)}
-.text-dark{color:rgb(31, 31, 31)}
-.text-dark-light{color:rgba(0, 0, 0,.5)}
-.text-red{color:rgb(230, 78, 78)}
-.text-orange{color:rgb(224, 138, 22)}
-.text-blue{color:#0080C1}
-.text-yellow{color:rgb(220, 228, 55)}
+.text-light-dark{color:var(--main-light-dark); }
+.text-light{color:var(--main-light); }
+.text-dark{color:var(--main-dark); }
+.text-dark-light{color:var(--main-dark-light); }
+.text-red{color:var(--main-red); }
+.text-orange{color:var(--main-orange); }
+.text-blue{color:var(--main-blue); }
+.text-yellow{color:var(--main-yellow); }
 
 .text-bold,.text-strong{font-weight: bold !important;}
 .text-underline{text-decoration: underline;;}
 .text-overline{text-decoration:overline;}
-.box-shadow{
-  box-shadow:0px 0px 16px rgba(0, 0, 0, .5);
-}
-.cursor-pointer{
-  cursor: pointer;
-  user-select: none;
-}
-
-.truncate {
+.truncate,.text-truncate {
   width: 250px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* Box Shadown */
+.box-shadow{ box-shadow:0px 0px 16px rgba(0, 0, 0, .5);}
+.box-left-ishadow{ box-shadow:inset -10px 0px 10px rgba(0, 0, 0, .1);}
+.box-right-ishadow{ box-shadow:inset 10px 0px 10px rgba(0, 0, 0, .1);}
+
+
+/* Borders */
+.border-bottom{ border-bottom: 2px solid #000}
+.border-top{ border-top: 2px solid #000}
+.border-left{ border-left: 2px solid #000}
+.border-right{ border-right: 2px solid #000}
+.border-white{ border-color: var(--main-white); }
+.border-light{ border-color: var(--main-light); }
+.border-gray{ border-color: var(--main-gray); }
+.border-yellow{ border-color: var(--main-yellow); }
+.border-blue{ border-color: var(--main-blue); }
+.border-red{ border-color: var(--main-red); }
+.border-dark{ border-color: var(--main-dark); }
+.border-dark-light{ border-color: var(--main-dark-light); }
+.border-orange{ border-color: var(--main-orange); }
+
+.cursor-pointer{
+  cursor: pointer;
+  user-select: none;
+}
+
+
 
 /* Grids */
 .vertical-align {
@@ -378,7 +424,7 @@ html, body {
   transition: all .2s ease;
   display: block;
   pointer-events: all;
-  
+
 
 }
 #toastNoty div:hover{

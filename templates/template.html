@@ -23,7 +23,7 @@
 
   </head>
   <body class="{{section}}">
-    <div class="navbar {{#if logged}} bg-blue  text-light {{else}} text-dark  bg-light  {{/if}} box-shadow">
+    <div class="navbar text-dark  bg-white border-bottom border-gray">
       <div class="container">
           <span class="cursor-pointer" onclick="app.toggleClass(document.querySelector('body'),'menu-open')"><i class="fa fa-bars"></i><span class="title-app">{{setting.website.title}}</span></span>
           {{#if logged}}
@@ -40,10 +40,10 @@
         {{{page}}}
     </div>
 
-    <div class=" sidebar bg-white">
+    <div class=" sidebar bgg-blue  box-left-ishadow ">
       <i class="fa fa-close cursor-pointer text-light" onclick="app.toggleClass(document.querySelector('body.menu-open'),'menu-open')"></i>
-      <div class="header bg-blue ">
-        <h1 class="title-app text-light">{{{setting.website.title}}}</h1>
+      <div class="header">
+        <h1 class="title-app text-center text-light">{{{setting.website.title}}}</h1>
       </div>
     </div>
 
