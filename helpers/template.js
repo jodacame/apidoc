@@ -14,6 +14,7 @@ const Handlebars  = require('handlebars');
 
 var compile = function(template,context,callback){
 
+  context.setting = _settings;
   fs.readFile(template, function (err, data) {
           if(!err)
           {

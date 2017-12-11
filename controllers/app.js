@@ -6,10 +6,15 @@ const compression = require('compression')
 const website   = require("./website.js")
 const account   = require("./account.js")
 const session     = require('express-session')
+const crud        = require("../models/crud");
 
 const app = express();
 
 
+/* Global setting */
+crud.find("settings",{},function(err,result){
+  global._settings = result;
+});
 
 app.enable('trust proxy');
 

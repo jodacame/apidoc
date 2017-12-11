@@ -34,44 +34,32 @@ var sha1 = function(input){
 /*
  * Generic function to send a email
  * @param {Object} email
- * @param {String} email.template path template html
- * @param {String} email.message
+ * @param {String} email.html
  * @param {String} email.from from "'name <email@domain.com>'"
  * @param {String} email.to
  * @param {String} email.subject
- * @param {String} email.text No HTML Message
+ * @param {String} email.text No HTML
  * @param {Function} callback (success,response)
 */
 var mail = function(email,callback)
 {
 
+  var emailSetting = _settings.email;
+  delete emailSetting.sender;
+
+  if(!email.from)
+    email.from = _settings.email.auth.sender;
+
   nodemailer.createTestAccount((err, account) => {
-    let transporter = nodemailer.createTransport({
-        host: website.email.host,
-        port: website.email.port,
-        authMethod: website.email.method,
-        secure: false, // true for 465, false for other ports
-        auth: {
-            user: website.email.user,
-            pass: website.email.password
-        }
-    });
+    let transporter = nodemailer.createTransport(emailSetting);
 
-
-
-
-    fs.readFile(email.template, function (err, data) {
-      var source = data.toString();
-      var template = Handlebars.compile(source);
-      var context = {message: email.message};
-      var html    = template(context);
 
       let mailOptions = {
           from: email.from, // sender address
           to: email.to, // list of receivers
           subject: email.subject, // Subject line
           text: email.text, // plain text body
-          html: html // html body
+          html: email.html // html body
       };
 
       transporter.sendMail(mailOptions, (error, info) => {
@@ -85,10 +73,9 @@ var mail = function(email,callback)
           }
           if(callback)
             callback(success,response);
-      });
-    });
+        });
 
-  });
+    });
 }
 module.exports = {
   generateString,

@@ -1,10 +1,10 @@
 'use strict';
 const crud        = require("../models/crud");
+const template        = require("../helpers/template");
 const functions   = require("../helpers/functions");
 const session     = require('express-session')
 
 /*
- * Register method
  * @param {String:POST} email
  * @param {String:POST} password
  */
@@ -56,7 +56,22 @@ var register = function(req,res,next){
           save.ipRegistred= req.ip;
 
           crud.save("account",save,function(err,result){
-              res.status(200).json({success:true,'message':{type:'success',text: "You have successfully registered"}});
+
+              let message        = '<strong>hello!</strong><br><br>'+save.email+'<br><br><strong>Welcome to '+_settings.website.title+"</strong><br><br>Your verification code is:<br><br><h2 style='font-family: courier'>"+save.verifyCode+"</h2><br>";
+              template.compile('./templates/emails/template.html',{message:message},function(html,err){
+                  let email     = {};
+                  console.log(html);
+                  email.html    = html;
+                  email.to      = save.email;
+                  email.subject = 'Your verirication code';
+                  email.text    = '';
+                  if(err)
+                    console.log(err);
+                  else
+                    functions.mail(email);
+                  res.status(200).json({success:true,'message':{type:'success',text: "You have successfully registered"}});
+              });
+
           });
       }else {
         res.status(403).json({success:false,'message':{ type:'error',text: "Email already registered"}});
