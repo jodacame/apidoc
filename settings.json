@@ -1,0 +1,18 @@
+{
+    "email": {
+        "host": "",
+        "port": ,
+        "authMethod": "",
+        "secure": false,
+        "auth": {
+            "user": "",
+            "pass": "",
+            "sender": ""
+        }
+    },
+    "website": {
+        "title": "ApiDoc",
+        "description": "The easiest way to document your API",
+        "contact": "contact@apidoc.co"
+    }
+}
