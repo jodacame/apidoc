@@ -58,6 +58,7 @@ app.get("/account/logout",account.logout);
 /* Panel */
 app.get("/account/panel",account.isLogged,website.panel);
 app.post("/account/panel/project",account.isLogged,panel.createProject);
+app.get("/account/panel/project/:idProject",account.isLogged,website.project);
 
 
 module.exports = app;
