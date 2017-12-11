@@ -682,5 +682,15 @@ body.menu-open .sidebar{
   body.home .navbar .fa-bars{
     display: none;
   }
+  .navbar a.profile strong,
+  .navbar a.profile .email{
+    display: none;
+  }
+  .navbar a.profile img{
+    position: relative;
+  }
+  .navbar a.profile{
+    padding-left: 0px;
+  }
 
 }
