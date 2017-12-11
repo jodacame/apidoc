@@ -41,10 +41,11 @@ app.use(express.static('assets'))
 
 /* Website Routes */
 app.get("/",website.home);
-app.get("/panel",website.panel);
+app.get("/account/panel",account.isLogged,website.panel);
 
 /* Account */
 app.post("/account/login",account.login);
+
 app.post("/account/register",account.register);
 
 

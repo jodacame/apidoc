@@ -20,11 +20,21 @@ var login = function(req,res,next){
       req.session.user    = result;
       delete result._id;
       delete result.password;
-      res.status(404).json({success:true,redirect:'/account/dashboard','message':{ type:'success',text: "You have successfully login, Please wait..."}});
+      res.status(404).json({success:true,redirect:'/account/panel','message':{ type:'success',text: "You have successfully login, Please wait..."}});
     }else {
       res.status(404).json({success:false,'message':{ type:'error',text: "Email and password don't match"}});
     }
   });
+}
+
+var isLogged = function(req,res,next){
+  if(!req.session.logged)
+  {
+    res.redirect('/');
+    res.end();
+    return false;
+  }
+  next()
 }
 
 /*
@@ -86,5 +96,6 @@ var register = function(req,res,next){
 
 module.exports = {
   login,
-  register
+  register,
+  isLogged
 }
