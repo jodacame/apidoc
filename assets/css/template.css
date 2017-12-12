@@ -692,9 +692,9 @@ body{
   padding-right: 10px;
 }
 .navbar .title-app{
-  display: none;
+
   font-size: 25px;
-  font-weight: bold;
+
 }
 
 .navbar a.profile{
@@ -731,10 +731,47 @@ body.menu-open .sidebar{
   transform: translate3d(0px,0,0);
 
 }
+.navbar{
+  padding-left: 260px;
+
+}
 .hide{
   display: none !important;
 }
-
+.btn-float{
+  vertical-align: middle;
+  line-height: 60px;
+  height: 60px;
+  width: 60px;
+  display: block;
+  position: fixed;
+  bottom:10px;
+  right:10px;
+  font-size: 20px;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, .3);
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  transition: all .3s ease;
+  user-select: none;
+}
+.btn-float:active{
+  transition: all .3s ease;
+  transform: scale(0.7);
+}
+.btn-float i{
+  text-align: center;
+  vertical-align: middle;
+  line-height: 60px;
+  height: 60px;
+  width: 60px;
+}
+.p2{ padding:20px;}
+.card{
+  border-radius: 3px;
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.2);
+  padding:20px;
+}
 @media all and (max-width:1000px)
 {
 

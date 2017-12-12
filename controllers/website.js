@@ -48,10 +48,36 @@ var project = function(req,res,next)
 
     if(result[0])
     {
-      result = result[0];
-      template.compile('./templates/panel/project.html',{user:req.session.user,projects:result},function(html,err){
+      var projectObj = result[0];
+      template.compile('./templates/panel/project.html',{user:req.session.user,project:projectObj},function(html,err){
       projects.get({owner:req.session.user.email},function(err,result){
-          let context = {page:html, title: 'Panel',projects:result,logged:true,user:req.session.user,description:'Panel | ApiDoc',section:"panel"}
+          let context = {page:html, title: projectObj.name,project:projectObj,projects:result,logged:true,user:req.session.user,description:'Panel | ApiDoc',section:"panel"}
+          template.compile('./templates/template.html',context,function(html,err){
+              res.status(200).send(html);
+          });
+        });
+      });
+    }
+    else{
+      res.status(404).send("Project not found");
+    }
+  });
+
+}
+var newApi = function(req,res,next)
+{
+  if(ObjectID.isValid(req.params.idProject))
+    var idProject = new ObjectID(req.params.idProject)
+  else
+    var idProject = '1';
+  projects.get({owner:req.session.user.email,_id:idProject},function(err,result){
+
+    if(result[0])
+    {
+      var projectObj = result[0];
+      template.compile('./templates/panel/new-api.html',{user:req.session.user,project:projectObj},function(html,err){
+      projects.get({owner:req.session.user.email},function(err,result){
+          let context = {page:html, bodyClass:'bg-gray',title: projectObj.name,project:projectObj,projects:result,logged:true,user:req.session.user,description:'Panel | ApiDoc',section:"panel"}
           template.compile('./templates/template.html',context,function(html,err){
               res.status(200).send(html);
           });
@@ -68,6 +94,7 @@ var project = function(req,res,next)
 module.exports = {
   home,
   panel,
-  project
+  project,
+  newApi
 
 }

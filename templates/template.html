@@ -22,10 +22,10 @@
 
 
   </head>
-  <body class="{{section}}">
+  <body class="{{section}} {{bodyClass}}">
     <div class="navbar text-dark  bg-white {{#if logged}} border-bottom border-gray {{/if}}">
       <div class="{{#if logged}} container-fluid  {{else}} container {{/if}}">
-          <span class="cursor-pointer" onclick="app.toggleClass(document.querySelector('body'),'menu-open')"><i class="fa fa-bars"></i><span class="title-app">{{setting.website.title}}</span></span>
+          <span><i class="fa fa-bars" onclick="app.toggleClass(document.querySelector('body'),'menu-open')"></i><span class="text-dark-light title-app">{{title}}</span></span>
           {{#if logged}}
             <a href="/account/panel/settings" class="profile">
               <img src="{{gravatar user.email size=64}}" />
