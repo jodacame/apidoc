@@ -44,16 +44,17 @@ var project = function(req,res,next)
     var idProject = new ObjectID(req.params.idProject)
   else
     var idProject = '1';
-  projects.get({owner:req.session.user.email,_id:idProject},function(err,result){
-
+    projects.get({owner:req.session.user.email,_id:idProject},function(err,result){
     if(result[0])
     {
       var projectObj = result[0];
-      template.compile('./templates/panel/project.html',{user:req.session.user,project:projectObj},function(html,err){
-      projects.get({owner:req.session.user.email},function(err,result){
-          let context = {page:html, title: projectObj.name,project:projectObj,projects:result,logged:true,user:req.session.user,description:'Panel | ApiDoc',section:"panel"}
-          template.compile('./templates/template.html',context,function(html,err){
-              res.status(200).send(html);
+      projects.api.get({projectID:projectObj._id},function(err,apis){
+        template.compile('./templates/panel/project.html',{apis:apis,user:req.session.user,project:projectObj},function(html,err){
+        projects.get({owner:req.session.user.email},function(err,result){
+            let context = {page:html, title: projectObj.name,project:projectObj,projects:result,logged:true,user:req.session.user,description:'Panel | ApiDoc',section:"panel"}
+            template.compile('./templates/template.html',context,function(html,err){
+                res.status(200).send(html);
+            });
           });
         });
       });

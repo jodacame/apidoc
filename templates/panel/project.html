@@ -1,3 +1,14 @@
-<a href="/account/panel/project/{{project._id}}/new" class="btn-float bg-blue text-light">
+{{#if apis}}
+
+{{else}}
+
+    <h1 class="center-title text-dark-light">
+      <i class="fa fa-frown-o fa-5x animated fadeIn" aria-hidden="true"></i><br />
+      Nothing here yet!
+    </h1>
+
+
+{{/if}}
+<a href="#"  onclick="app.dialog.open('panel/new-api')" class="btn-float bg-blue text-light">
     <i class="fa fa-plus"></i>
 </a>

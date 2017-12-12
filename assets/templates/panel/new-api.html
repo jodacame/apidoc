@@ -1,0 +1,39 @@
+<div class="modal-dialog login animated bounceIn">
+
+
+  <div class="modal-content ">
+
+    <div class="modal-header bg-gray text-dark-light ">
+      <h5 class="modal-title">New API</h5>
+      <button type="button" class="close text-bold">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+
+    <div class="modal-body row">
+      <div class="container-fluid row  p2">
+
+          <div class="col12 ">
+            <form method="POST" class="row" action="/account/panel/project/"   onsubmit="return app.sendForm(this,'createProject')">
+
+                  <div class="col8">
+                      <input type="text" required name="name" placeholder="Name" />
+                  </div>
+                  <div class="col4">
+                      <input type="text" required name="version" placeholder="Version" />
+                  </div>
+
+                  <input type="text" required name="description" placeholder="Short description" />
+
+                  <button type="submit" class="mt4 btn bg-blue text-light">Save</button>
+
+
+              </form>
+          </div>
+
+      </div>
+
+    </div>
+
+</div>
