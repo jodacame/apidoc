@@ -40,6 +40,14 @@ Handlebars.registerHelper('gravatar', (context, options) => {
   return `https://www.gravatar.com/avatar/${hash}?s=${size}`;
 });
 
+Handlebars.registerHelper('varObjectScript', (context, options) => {
+  let obj = context;
+  let name = options.hash.name;
+
+  return `var ${name} = `+JSON.stringify(obj);
+});
+
+
 module.exports = {
   compile
 }

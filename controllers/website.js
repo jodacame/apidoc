@@ -1,9 +1,10 @@
 'use strict';
 
 const session     = require('express-session')
-const template =  require("../helpers/template.js")
+const template    =  require("../helpers/template.js")
 const projects    = require("../models/projects");
-const ObjectID = require('mongodb').ObjectID;
+const crud        = require("../models/crud");
+const ObjectID    = require('mongodb').ObjectID;
 
 var home = function(req,res,next)
 {
@@ -16,7 +17,7 @@ var home = function(req,res,next)
 
 
   template.compile('./templates/home.html',{},function(html,err){
-    let context = {page:html, title: 'APIDoc | Free RESTful API Documentation Tools',description:'Welcome to home page',section:"home bg-white"}
+    let context = {page:html, title: 'APIDoc',description:'Welcome to home page',section:"home bg-white"}
     template.compile('./templates/template.html',context,function(html,err){
         res.status(200).send(html);
     });
@@ -67,6 +68,9 @@ var project = function(req,res,next)
 }
 var newApi = function(req,res,next)
 {
+
+  
+
   if(ObjectID.isValid(req.params.idProject))
     var idProject = new ObjectID(req.params.idProject)
   else

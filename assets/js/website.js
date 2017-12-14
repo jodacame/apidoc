@@ -41,3 +41,10 @@ var createProject = function(res,err,form)
   }
   app.toast(res.message.type,res.message.text);
 }
+var createApi = function(res,err,form)
+{
+  if(res.success && res.redirect){
+    window.location.href = res.redirect;
+  }
+  app.toast(res.message.type,res.message.text);
+}

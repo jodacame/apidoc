@@ -1,4 +1,4 @@
-<div class="modal-dialog login animated bounceIn">
+<div class="modal-dialog  bg-white login animated bounceIn">
 
 
   <div class="modal-content ">
@@ -11,11 +11,11 @@
     </div>
 
 
-    <div class="modal-body row">
-      <div class="container-fluid row  p2">
+    <div class="modal-body  row">
+      <div class="container-fluid row ">
 
           <div class="col12 ">
-            <form method="POST" class="row" action="/account/panel/project/"   onsubmit="return app.sendForm(this,'createProject')">
+            <form method="POST" class="row  p2" action="/account/panel/project/:idProject/api"   onsubmit="this.action=this.action.replace(':idProject',current._id);return app.sendForm(this,'createApi')">
 
                   <div class="col8">
                       <input type="text" required name="name" placeholder="Name" />

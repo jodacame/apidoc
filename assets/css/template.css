@@ -733,7 +733,9 @@ body.menu-open .sidebar{
 }
 .navbar{
   padding-left: 260px;
-
+}
+body.home .navbar{
+  padding-left: 0px;
 }
 .hide{
   display: none !important;

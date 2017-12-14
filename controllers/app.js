@@ -34,8 +34,8 @@ app.use(session({
     maxAge: 60000 * 1440 * 30 // 30 Days
   },
   store: new RedisStore(),
-  resave: true,
-  saveUninitialized: true
+  resave: false,
+  saveUninitialized: false
 }))
 
 
@@ -60,6 +60,7 @@ app.get("/account/panel",account.isLogged,website.panel);
 app.post("/account/panel/project",account.isLogged,panel.createProject);
 app.get("/account/panel/project/:idProject",account.isLogged,website.project);
 app.get("/account/panel/project/:idProject/new",account.isLogged,website.newApi);
+app.post("/account/panel/project/:idProject/api",account.isLogged,panel.createApi);
 
 
 module.exports = app;
